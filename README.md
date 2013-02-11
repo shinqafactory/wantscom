@@ -13,3 +13,4 @@ add tsuiki test!!
 add tsuiki test!!2
 add tsuiki test!!3
 add kazuhiro test!!4
+add tsuiki test!!5
