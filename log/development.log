@@ -7731,3 +7731,48 @@ Served asset /home.js - 200 OK (2ms)
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-11 17:23:54 +0900
 Served asset /application.js - 304 Not Modified (8ms)
 >>>>>>> eb0ffcb58c7ceab9ff9d27dcbaded396dd99bbe4
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-13 20:39:26 +0900
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 47ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-02-13 20:39:27 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (113.0ms)
+Compiled home.css  (38ms)  (pid 6344)
+Compiled application.css  (1ms)  (pid 6344)
+Compiled home.js  (520ms)  (pid 6344)
+Completed 200 OK in 1398ms (Views: 1301.1ms | ActiveRecord: 67.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /home.css - 200 OK (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /jquery.js - 200 OK (15ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /jquery_ujs.js - 200 OK (12ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /home.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /application.js - 200 OK (26ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
