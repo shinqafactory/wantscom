@@ -7732,6 +7732,7 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-11 17:23:54
 Served asset /application.js - 304 Not Modified (8ms)
 >>>>>>> eb0ffcb58c7ceab9ff9d27dcbaded396dd99bbe4
 Connecting to database specified by database.yml
+<<<<<<< HEAD
 
 
 Started GET "/" for 127.0.0.1 at 2013-02-13 20:39:26 +0900
@@ -7776,3 +7777,5 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+=======
+>>>>>>> eee5861a0ec98cb4aa93500c6af94fcb16c9f90e
