@@ -11,7 +11,38 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130202093245) do
+ActiveRecord::Schema.define(:version => 20130214124741) do
+
+  create_table "ans", :force => true do |t|
+    t.integer  "ans_id"
+    t.string   "ans_content"
+    t.string   "ans_title"
+    t.string   "ans_url"
+    t.date     "ans_date"
+    t.integer  "ans_question_id"
+    t.integer  "ans_use_id"
+    t.string   "ans_pic"
+    t.integer  "ans_id_bn"
+    t.integer  "que_id_bn"
+    t.date     "que_delete_datetime"
+    t.string   "ans_ent_kbn"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
+
+  create_table "ques", :force => true do |t|
+    t.integer  "que_id"
+    t.string   "que_content"
+    t.string   "que_title"
+    t.date     "que_due_date"
+    t.date     "que_date_time"
+    t.integer  "que_use_id"
+    t.integer  "que_id_bn"
+    t.string   "que_delete_datetime"
+    t.string   "que_ent_kbn"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

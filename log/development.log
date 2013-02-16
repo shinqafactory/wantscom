@@ -7779,3 +7779,19 @@ Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 =======
 >>>>>>> eee5861a0ec98cb4aa93500c6af94fcb16c9f90e
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130202051728)
+Migrating to AddNameToUsers (20130202093245)
+Migrating to CreateQues (20130213135734)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "ques" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "que_id" integer, "que_content" varchar(255), "que_title" varchar(255), "que_due_date" date, "que_date_time" date, "que_use_id" integer, "que_id_bn" integer, "que_delete_datetime" varchar(255), "que_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130213135734')[0m
+  [1m[35m (22.0ms)[0m  commit transaction
+Migrating to CreateAns (20130214124741)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "ans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ans_id" integer, "ans_content" varchar(255), "ans_title" varchar(255), "ans_url" varchar(255), "ans_date" date, "ans_question_id" integer, "ans_use_id" integer, "ans_pic" varchar(255), "ans_id_bn" integer, "que_id_bn" integer, "que_delete_datetime" date, "ans_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130214124741')[0m
+  [1m[35m (29.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
