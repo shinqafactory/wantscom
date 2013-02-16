@@ -1,70 +1,52 @@
 # encoding: utf-8
 require 'spec_helper'
-#require 'Que'
 
 describe Que do
-#  before do
-#    @que = Que.new(que_content: "test content", que_title: "test title",
-#        que_due_date: "2013/02/13")
-#  end 
-#  subject { @que }
-  
-#  before(:each) do 
-#    @que = Que.new(que_id: 1,
-#    que_content: "テスト質問事項",
-#    que_title: "テストタイトル",
-#    que_due_date: 2013-02-16,
-#    que_date_time: 2013-02-16,
-#    que_use_id: 1,
-##    que_id_bn: 1,
-#    que_ent_kbn: "1"
-#    )
-#  end
   
   before(:each) do 
-    @attr = { :que_content => "test content" }
+    @attr = {:que_content => "テスト質問事項",
+      :que_title => "テストタイトル",
+      :que_due_date => 2013-02-16
+    }
   end
-
-  #質問事項(que_content)
-  #値が無い場合はエラーとする
-  it "should require nonblank que_content" do 
-    no_content = Que.new(@attr.merge(:que_content => ""))
-    no_content.should_not be_valid
-  end
-
-  #桁数が500文字を超える場合はエラーとする
   
-#  before(:each) do 
-#    @attr = { :que_content => "test content" }
-#  end
-
   #質問事項(que_content)
-  #値が無い場合はエラーとする
-#  it "should require a que_content" do 
-    #Que.new(:que_content => "").should_not be_valid
-#    @que.que_content.should_not be_valid
-#  end
+  describe '質問事項 バリデーションチェック' do
+    #値が無い場合はエラーとする
+    it '質問事項(que_content)が空白の時：エラーが発生すること' do 
+      no_content = Que.new(@attr.merge(:que_content => ""))
+      no_content.should_not be_valid
+    end
     
+    #桁数が500文字を超える場合はエラーとする
+    it '質問事項(que_content)の文字数が500文字を超える時：エラーが発生することを確認' do
+      long_content = Que.new(@attr.merge(:que_content => "a"*501))
+      long_content.should_not be_valid
+    end
+  end
+      
+  #質問題名(que_title)
+  describe '質問題名 バリデーションチェック' do
+    #値が無い場合はエラーとする
+    it '質問題名(que_title)が空白の時：エラーが発生すること' do 
+      no_title = Que.new(@attr.merge(:que_title => ""))
+      no_title.should_not be_valid
+    end
     
-#  it "should require a que_content" do 
-#    before { @que.que_content = "a" }
-#    it { should_not be_valid }
-#  end
+    #桁数が50文字を超える場合はエラーとする
+    it '質問題名(que_title)の文字数が50文字を超える時：エラーが発生することを確認' do
+      long_title = Que.new(@attr.merge(:que_title => "a"*51))
+      long_title.should_not be_valid
+    end
+  end  
     
-    
-    
-#　 describe que_content," の入力チェックをおこなう " do
-#    before { @que.que_content = "" }
-#    #値が無い場合はエラーとする
-#    it { should_not be_valid }
-#  end
-    
-    
-  #桁数が500文字を超える場合はエラーとする
-#  describe que_content,"when que_content is too long" do
-#    before { @que.que_content = "a"*501 }
-#    it { should_not be_valid }
-#  end
-
-    
+  #期限(que_due_date)
+  describe '期限 バリデーションチェック' do
+    #値が無い場合はエラーとする
+    it '期限(que_title)が空白の時：エラーが発生すること' do 
+      no_due_date = Que.new(@attr.merge(:que_due_date => nil))
+      no_due_date.should_not be_valid
+    end
+  end
+  
 end
