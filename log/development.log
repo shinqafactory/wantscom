@@ -7732,6 +7732,7 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-11 17:23:54
 Served asset /application.js - 304 Not Modified (8ms)
 >>>>>>> eb0ffcb58c7ceab9ff9d27dcbaded396dd99bbe4
 Connecting to database specified by database.yml
+<<<<<<< HEAD
 Connecting to database specified by database.yml
   [1m[36m (46.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
 Migrating to DeviseCreateUsers (20130202051728)
@@ -7785,10 +7786,53 @@ Served asset /jquery_ujs.js - 304 Not Modified (34ms)
 
 Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-02-14 22:05:02 +0900
 Served asset /home.js - 304 Not Modified (3ms)
+=======
+<<<<<<< HEAD
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-13 20:39:26 +0900
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 47ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-02-13 20:39:27 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (3.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (113.0ms)
+Compiled home.css  (38ms)  (pid 6344)
+Compiled application.css  (1ms)  (pid 6344)
+Compiled home.js  (520ms)  (pid 6344)
+Completed 200 OK in 1398ms (Views: 1301.1ms | ActiveRecord: 67.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /home.css - 200 OK (9ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /jquery.js - 200 OK (15ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /application.css - 200 OK (19ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /jquery_ujs.js - 200 OK (12ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /home.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-13 20:39:29 +0900
+Served asset /application.js - 200 OK (26ms)
+>>>>>>> 065b54660b252cf8495a9ab4ad6101e6495dc3ef
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
 Connecting to database specified by database.yml
+<<<<<<< HEAD
 
 
 Started GET "/" for 127.0.0.1 at 2013-02-16 16:54:42 +0900
@@ -7825,3 +7869,40 @@ Served asset /jquery.js - 304 Not Modified (30ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-16 16:54:44 +0900
 Served asset /application.js - 304 Not Modified (21ms)
+=======
+Connecting to database specified by database.yml
+=======
+>>>>>>> eee5861a0ec98cb4aa93500c6af94fcb16c9f90e
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130202051728)
+Migrating to AddNameToUsers (20130202093245)
+Migrating to CreateQues (20130213135734)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "ques" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "que_id" integer, "que_content" varchar(255), "que_title" varchar(255), "que_due_date" date, "que_date_time" date, "que_use_id" integer, "que_id_bn" integer, "que_delete_datetime" varchar(255), "que_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130213135734')[0m
+  [1m[35m (22.0ms)[0m  commit transaction
+Migrating to CreateAns (20130214124741)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "ans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ans_id" integer, "ans_content" varchar(255), "ans_title" varchar(255), "ans_url" varchar(255), "ans_date" date, "ans_question_id" integer, "ans_use_id" integer, "ans_pic" varchar(255), "ans_id_bn" integer, "que_id_bn" integer, "que_delete_datetime" date, "ans_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130214124741')[0m
+  [1m[35m (29.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "ans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ans_id" integer, "ans_content" varchar(255), "ans_title" varchar(255), "ans_url" varchar(255), "ans_date" date, "ans_question_id" integer, "ans_use_id" integer, "ans_pic" varchar(255), "ans_id_bn" integer, "que_id_bn" integer, "que_delete_datetime" date, "ans_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (5.0ms)[0m  CREATE TABLE "ques" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "que_id" integer, "que_content" varchar(255), "que_title" varchar(255), "que_due_date" date, "que_date_time" date, "que_use_id" integer, "que_id_bn" integer, "que_delete_datetime" varchar(255), "que_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "confirmation_token" varchar(255), "confirmed_at" datetime, "confirmation_sent_at" datetime, "unconfirmed_email" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "username" varchar(255)) [0m
+  [1m[35m (4.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (4.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (5.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")
+  [1m[36m (5.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (5.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (4.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130214124741')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130202051728')[0m
+  [1m[35m (5.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20130202093245')
+  [1m[36m (4.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20130213135734')[0m
+>>>>>>> 065b54660b252cf8495a9ab4ad6101e6495dc3ef
