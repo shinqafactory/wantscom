@@ -7732,3 +7732,96 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-11 17:23:54
 Served asset /application.js - 304 Not Modified (8ms)
 >>>>>>> eb0ffcb58c7ceab9ff9d27dcbaded396dd99bbe4
 Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (46.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to DeviseCreateUsers (20130202051728)
+Migrating to AddNameToUsers (20130202093245)
+Migrating to CreateAns (20130214124741)
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  CREATE TABLE "ans" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "ans_id" integer, "ans_content" varchar(255), "ans_title" varchar(255), "ans_url" varchar(255), "ans_date" date, "ans_question_id" integer, "ans_use_id" integer, "ans_pic" varchar(255), "ans_id_bn" integer, "que_id_bn" integer, "que_delete_datetime" date, "ans_ent_kbn" varchar(255), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20130214124741')[0m
+  [1m[35m (3.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-14 22:05:00 +0900
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 27ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-02-14 22:05:01 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (70.0ms)
+Compiled jquery.js  (4ms)  (pid 7592)
+Compiled jquery_ujs.js  (1ms)  (pid 7592)
+Compiled application.js  (143ms)  (pid 7592)
+Completed 200 OK in 350ms (Views: 322.0ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-02-14 22:05:01 +0900
+Served asset /home.css - 304 Not Modified (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-14 22:05:01 +0900
+Served asset /application.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-14 22:05:02 +0900
+Served asset /jquery.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-14 22:05:02 +0900
+Served asset /application.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-14 22:05:02 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (34ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-02-14 22:05:02 +0900
+Served asset /home.js - 304 Not Modified (3ms)
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-16 16:54:42 +0900
+Processing by HomeController#index as HTML
+Completed 401 Unauthorized in 27ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (2.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (70.0ms)
+Completed 200 OK in 325ms (Views: 289.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Served asset /home.css - 304 Not Modified (9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Served asset /application.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Served asset /home.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Served asset /jquery_ujs.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-02-16 16:54:43 +0900
+Served asset /jquery.js - 304 Not Modified (30ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-02-16 16:54:44 +0900
+Served asset /application.js - 304 Not Modified (21ms)
