@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20130214124741) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+<<<<<<< HEAD
+=======
 
   create_table "ques", :force => true do |t|
     t.integer  "que_id"
@@ -43,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130214124741) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
+>>>>>>> 065b54660b252cf8495a9ab4ad6101e6495dc3ef
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
