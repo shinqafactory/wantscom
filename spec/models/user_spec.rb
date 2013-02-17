@@ -1,3 +1,4 @@
+# coding: utf-8
 # == Schema Information
 #
 # Table name: users
@@ -22,13 +23,12 @@
 #  username               :string(255)
 #
 
-
 require 'spec_helper'
 
 describe User do
   before do
     @user = User.new(username: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+                     password: "12345678", password_confirmation: "12345678")
   end
 
   subject { @user }
@@ -38,22 +38,22 @@ describe User do
 
   it { should be_valid }
 
-  describe name,"when name is too long" do
+  describe "username が長過ぎるとき" do
     before { @user.username = "a"*51 }
     it { should_not be_valid }
   end
 
-  describe name,"when name is too short" do
+  describe "username が短すぎるとき" do
     before { @user.username = "a" }
     it { should_not be_valid }
   end
 
-  describe name,"when name is not present" do
+  describe "username が存在しないとき" do
     before { @user.username = "" }
     it { should_not be_valid }
   end
 
-  describe "when email format is invalid" do
+  describe "email のフォーマットが正しくないとき" do
     it "should be invalid" do
       addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                                            foo@bar_baz.com foo@bar+baz.com]
@@ -64,7 +64,7 @@ describe User do
     end
   end
 
-  describe "when email format is valid" do
+  describe "email のフォーマットが正しいとき" do
     it "should be valid" do
       addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
       addresses.each do |valid_address|
@@ -74,7 +74,7 @@ describe User do
     end
   end
 
-  describe "when email address is already taken"do
+  describe "email address が登録済みであるとき"do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
@@ -83,45 +83,24 @@ describe User do
     it {should_not be_valid }
   end
 
-  describe "when password is not present" do
+  describe "password が空欄のとき" do
     before { @user.password = @user.password_confirmation = "" }
     it { should_not be_valid }
   end
 
-  describe "when password doesn't match confirmation" do
+  describe "password confirmation が一致しないとき" do
     before { @user.password_confirmation = "mismatch" }
     it { should_not be_valid }
   end
 
-  describe "when password confirmation is nil" do
+  describe "password confirmation が nil のとき" do
     before { @user.password_confirmation = nil }
     it { should_not be_valid }
   end
 
-  describe "with a password that's too short" do
+  describe "password が短すぎるとき" do
     before { @user.password = @user.password_confirmation = "a" * 5 }
     it { should be_invalid }
-  end
-
-  describe "return value of authenticate method" do
-    before { @user.save }
-    let(:found_user) { User.find_by_email(@user.email) }
-
-    describe "with valid password" do
-      it { should == found_user.authenticate(@user.password) }
-    end
-
-    describe "with invalid password" do
-      let(:user_for_invalid_password) { found_user.authenticate("invalid") }
-
-      it { should_not == user_for_invalid_password }
-      specify { user_for_invalid_password.should be_false }
-    end
-
-    describe "remember token" do
-      before { @user.save }
-      its(:remember_token) { should_not be_blank }
-    end
   end
 end
 
