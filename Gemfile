@@ -14,11 +14,7 @@ gem 'devise','2.2.3'
 
 group :development, :test do
  gem 'sqlite3','1.3.5'
-<<<<<<< HEAD
- gem 'rspec-rails','2.12.2'
-=======
  gem 'rspec-rails','2.12.1'
->>>>>>> 065b54660b252cf8495a9ab4ad6101e6495dc3ef
  gem 'guard-rspec','1.2.1'
 end
 
