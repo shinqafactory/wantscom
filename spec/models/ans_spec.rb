@@ -19,7 +19,7 @@ describe Ans do
   it "should have the right questions in the right order" do
     @attr.questions.should == [@que2, @que1]
   end
-  　　#ユーザーID付与に関するチェック
+  #ユーザーID付与に関するチェック
   describe "validations" do
     it "should require a user id" do
       Ans.new(@attr).should_not be_vaild
