@@ -3,5 +3,5 @@ class Ans < ActiveRecord::Base
   validates  :ans_id, :presence => true
   validates  :ans_content, :presence => true, :length => { :maximum =>750}
   validates  :ans_titie, :presence => true, :length => { :maximum =>150}
-  validates  :ans_url, :presence => true, :length => { :maximum =>500}, :format =>{:with => url.regexp（{'http', 'https', 'ftp'})}
+  validates  :ans_url, :presence => true, :length => { :maximum =>500}, :format =>{:with =>URI.regexp(['http', 'https', 'ftp'])}
 end
