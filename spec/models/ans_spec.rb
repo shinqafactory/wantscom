@@ -29,19 +29,15 @@ describe Ans do
                :ans_title => "Answer Title",
                :ans_url => "Answer Url",
                :ans_date => "Answer Date"}
-
-
-
   end
 
-  it "質問は回答に帰属する。" do
-    
-    @attr.should respond_to(:questions)
+  describe "テスト" do
+    it "回答内容はnullである" do
+      ans = Ans.new(@attr.merge(:ans_content => "")) 
+      ans.should_not be_valid 
+    end
   end
 
-  it "回答は正しい順番で並ぶ。" do
-    @attr.questions.should == [@que2, @que1]
-  end
 
   describe "質問関連のバリデーション" do
     it "ユーザーIDは必要とされる。" do
