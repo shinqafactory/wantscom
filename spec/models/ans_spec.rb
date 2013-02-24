@@ -19,37 +19,36 @@ require 'spec_helper'
 describe Ans do
     
 before(:each) do
-  @attr = [:ans_content => "Answer Sample",
+  @attr = {:ans_content => "Answer Sample",
              :ans_title => "Answer Title",
              :ans_url   => "Answer url"
-             ]
-end
-  
+  }
+end  
 describe "バリデーション" do
 
     it "空欄の回答内容はエラーとなる。" do
-      no_ans_content = Ans.new(@attr.merge(:ans_content => ""))
-      no_ans_content.should_not be_vaild
+      no_content = Ans.new(@attr.merge(:ans_content => ""))
+      no_content.should_not be_valid
     end
     it "長い（751文字以上）の回答内容はエラーとなる。" do
        long_ans_content = Ans.new(@attr.merge(:ans_content => "a"*751 ))
-       long_ans_content.should_not be_vaild
+       long_ans_content.should_not be_valid
     end
     it "空欄の回答題名はエラーとなる。" do
-       no_ans_titie = Ans.new(@attr.merge(:ans_title => ""))
-       no_ans_title.should_not be_vaild
+       no_title = Ans.new(@attr.merge(:ans_title => ""))
+       no_title.should_not be_valid
     end
     it "長い（151文字以上）の回答題名はエラーとなる。" do
        long_ans_title = Ans.new(@attr.merge(:ans_title => "a"*151 ))
-       long_ans_title.should_not be_vaild
+       long_ans_title.should_not be_valid
     end
     it "空欄の回答URLはエラーとなる。" do
        no_ans_url = Ans.new(@attr.merge(:ans_url => ""))
-       no_ans_url.should_not be_vaild
+       no_ans_url.should_not be_valid
     end
     it "長い（500文字以上）の回答URLはエラーとなる。" do
        long_ans_url = Ans.new(@attr.merge(:ans_url => "a"*501 ))
-       long_ans_url.should_not be_vaild
+       long_ans_url.should_not be_valid
     end
   end
 end
