@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 #【テスト未了事項】
 #(1)他モデルからの接続関係のテスト
 #（２）URLに関するバリデーションの拡充チェック
@@ -12,7 +14,6 @@
 #(4)回答URLに関するバリデーション
 #次の場合はエラーとする（501文字以上、空欄、内容に以下が含まれないもの（http,https))
 
-# encoding: utf-8
 require 'spec_helper'
 
 describe Ans do
@@ -21,7 +22,7 @@ describe Ans do
     @attr = {:ans_content => "Answer Sample",
                :ans_title => "Answer Title",
                :ans_url => "Answer url",
-               :ans_date => "Answer Date",}
+               :ans_date => "Answer Date"}
     @que1 = Factory(:questions, :answer => @answer, :created_at => 1.day.ago)
     @que2 = Factory(:questions, :answer => @answer, :created_at => 30.day.ago)
   end
