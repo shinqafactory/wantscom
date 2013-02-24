@@ -19,7 +19,8 @@ class Que < ActiveRecord::Base
   length: { minimum: 1, maximum: 50 , allow_blank: true }
 
   #期限(que_due_date)の入力チェック
-  validates :que_content, presence: true
+  validates :que_due_date, presence: true
+  
 
 
 end

@@ -13,7 +13,7 @@ describe Ans do
     @attr = {:ans_content => "Answer Sample",
                :ans_title => "Answer Title",
                :ans_url => "Answer Url",
-               :ans_date => "Answer Date",}
+               :ans_date => "Answer Date"}
     @que1 = Factory(:questions, :answer => @answer, :created_at => 1.day.ago)
     @que2 = Factory(:questions, :answer => @answer, :created_at => 30.day.ago)
   end
@@ -58,5 +58,17 @@ describe Ans do
        long_ans_url = ans.new(@attr.merge(:ans_url => "a"*501 ))
        long_ans_url.should_not be_vaild
     end
+    it "should submit http URL" do
+           http_ans_url = ans.new(@attr.merge(:ans_url => "http" ))
+           http_ans_url.should be_vaild
+    end
+    it "should submit https URL" do
+           https_ans_url = ans.new(@attr.merge(:ans_url => "https" ))
+           https_ans_url.should be_vaild
+    end
+    it "should submit ftp URL" do
+           ftp_ans_url = ans.new(@attr.merge(:ans_url => "ftp" ))
+           ftp_ans_url.should be_vaild
+   end 
   end 
 end
