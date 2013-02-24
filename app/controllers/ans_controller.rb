@@ -1,21 +1,18 @@
 class AnsController < ApplicationController
   def create
    @ans = ans.new(params[:que])
-        if @ans.save
-          redirect_to @que
-        else
-          @title = "Sign up"
-          render 'que'
-    end
+     if @ans.save
+        redirect_to @user
+     else
+        render '***'
+     end
   end
   def destroy
     @ans = ans.new(params[:que])
-        if @ans.save
-          sign_in @que
+      if @ans.save
         redirect_to @que
-        else
-          @title = "Sign up"
-          render 'que'
-        end
+      else
+        render '***'
+      end
   end
 end
