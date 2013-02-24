@@ -1,0 +1,13 @@
+# '#'で始まる行は無視されます。
+# env.vimという名前のすべてのファイルを無視する
+env.vim
+# files.listという名前のすべてのファイルを無視する
+files.list
+# tagsというファイルを無視する
+tags
+# 
+*.swk
+*.swl
+*.swm
+*.swn
+*.swo
