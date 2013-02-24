@@ -1,0 +1,2 @@
+class AnsController < ApplicationController
+end
