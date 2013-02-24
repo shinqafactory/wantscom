@@ -1,0 +1,261 @@
+[33mcommit 32a275f4ff5a50febc7eeb4da0c8ff846b3f06ae[m
+Author: wattasn <hrk@watta.jp>
+Date:   Tue Feb 19 11:15:46 2013 +0900
+
+    fixed ans_spec.rb bug & confrict of Gemfile.lock
+
+[33mcommit 29ccedd3a50326a5ac60276a3455541025f210e2[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sun Feb 17 13:04:55 2013 +0900
+
+    delete file
+
+[33mcommit 9a5912390d38c455686059c678be72fa1ebacb1c[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sun Feb 17 12:57:12 2013 +0900
+
+    delete file
+
+[33mcommit fdecc8f434b5e0854be0a8c518d86912032423bd[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sun Feb 17 12:29:46 2013 +0900
+
+    gemfile modifyed
+
+[33mcommit b645fe263518a5e72873c2c4bc6710278f895af4[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Sun Feb 17 11:39:29 2013 +0900
+
+    Modified 20130217
+
+[33mcommit ce72744c38dfb6f20f55a51c410cae9470f909cf[m
+Merge: 9a3e56a 37fb16b
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Sun Feb 17 11:33:36 2013 +0900
+
+    Merge branch 'development' of https://github.com/shinqafactory/wantscom into development
+
+[33mcommit 9a3e56a21a8b90e2df5e9f3deb0b823f282bd64f[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Sun Feb 17 11:33:03 2013 +0900
+
+    I changed a few spec
+
+[33mcommit 37fb16b0e2099fcaddab86930d028740063c4a13[m
+Merge: c0078d7 00db9b2
+Author: wattasn <hrk@watta.jp>
+Date:   Sun Feb 17 11:32:25 2013 +0900
+
+    user_spec localization
+
+[33mcommit c0078d7ff138a1e04bbca3169aba8a341644200d[m
+Author: wattasn <hrk@watta.jp>
+Date:   Sun Feb 17 11:30:17 2013 +0900
+
+    user_spec localization
+
+[33mcommit 5a2572e421cca16d58c971bf8aa9d0d5cdef9625[m
+Author: wattasn <hrk@watta.jp>
+Date:   Sun Feb 17 11:20:06 2013 +0900
+
+    user_spec Japanese localization
+
+[33mcommit 00db9b2f232fc302acfe085abde83195e0f67a82[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Sun Feb 17 11:04:57 2013 +0900
+
+    answer model spec made by taichi
+
+[33mcommit 157fd59952bac3458bafcb52fd163a46909f0711[m
+Merge: 58475d7 065b546
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Sat Feb 16 17:01:24 2013 +0900
+
+    download
+
+[33mcommit 58475d7d7ba14b9ed42774cea4f03a0b9cc62798[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Sat Feb 16 16:59:41 2013 +0900
+
+    pull
+
+[33mcommit 065b54660b252cf8495a9ab4ad6101e6495dc3ef[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sat Feb 16 16:56:05 2013 +0900
+
+    add que rspec
+
+[33mcommit 371db6013844c6a85788f983a01e6c76d2525a37[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sat Feb 16 14:56:14 2013 +0900
+
+    test
+
+[33mcommit 1afa32f829bf9e32e62c140ff54adff809c73087[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Sat Feb 16 14:53:54 2013 +0900
+
+    test
+
+[33mcommit 232a212ed45e3e8989a58710da25c3ad7cb95963[m
+Merge: 60cd02d eee5861
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Thu Feb 14 22:09:00 2013 +0900
+
+    test
+
+[33mcommit 60cd02d9bb5de662b079d243a125b0a5ee1d8ed5[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Thu Feb 14 22:07:34 2013 +0900
+
+    test
+
+[33mcommit eee5861a0ec98cb4aa93500c6af94fcb16c9f90e[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Thu Feb 14 21:56:00 2013 +0900
+
+    add answer model
+
+[33mcommit 26593b3348780f26d90dfd2ea7d569254b088d7d[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Mon Feb 11 19:53:53 2013 +0900
+
+    THANK YOU JAPAN
+
+[33mcommit 626f270483aee575c61f3d1735a8de0af591c654[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Mon Feb 11 19:52:29 2013 +0900
+
+    tsuiki add
+
+[33mcommit 65e2f1f0af2f192c864051dd43bec1a73e530831[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Mon Feb 11 19:50:40 2013 +0900
+
+    kazuhiro add
+
+[33mcommit be2f5db0c1ba1f03d69e84a2ecf94782f54bdb51[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Mon Feb 11 19:48:04 2013 +0900
+
+    tsuiki add
+
+[33mcommit f6c7707379a1b70c7252afbf543628f6bbc51c18[m
+Merge: 9a08a0d 05ee837
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Mon Feb 11 19:35:48 2013 +0900
+
+    tsuiki add
+
+[33mcommit 9a08a0d0440a68440d14ce3918b90d60ef216aef[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Mon Feb 11 19:32:26 2013 +0900
+
+    tsuiki add
+
+[33mcommit 05ee8371010ef398531402b36fe6cfb16afe8f7d[m
+Merge: 3d66842 98e3954
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 19:28:44 2013 +0900
+
+    third test
+
+[33mcommit 98e3954179924abc931224b1398ac468d8d7c49d[m
+Merge: 4af2ae0 4d2fcca
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 19:25:07 2013 +0900
+
+    second test
+
+[33mcommit 4af2ae0a8ed411507548a5c23785f3292b4f3f10[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 19:19:00 2013 +0900
+
+    second test
+
+[33mcommit 93e6d21001274926bdb6bc8dbc558b81cb5e0b5b[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 19:11:29 2013 +0900
+
+    second test
+
+[33mcommit 4d2fcca0ead9271d93bd22529d0ddfa7131e5a01[m
+Author: haraichi1118 <tsuiki@shinqafactory.com>
+Date:   Mon Feb 11 19:06:04 2013 +0900
+
+    tsuiki add
+
+[33mcommit 3d66842c21aee55f25a8c2b6533af47d5bb88efb[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 19:03:03 2013 +0900
+
+    second test
+
+[33mcommit af216572a343269d7dad0d590973a3003bca23e1[m
+Merge: fa0d66a eb0ffcb
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Mon Feb 11 18:58:22 2013 +0900
+
+    i understand
+
+[33mcommit eb0ffcb58c7ceab9ff9d27dcbaded396dd99bbe4[m
+Merge: f62adeb ae93b1d
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 18:53:20 2013 +0900
+
+    first merge
+
+[33mcommit fa0d66a4f3697dc95d5117f37eda90f74c15b949[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Mon Feb 11 18:51:15 2013 +0900
+
+    OK
+
+[33mcommit f62adeb374cfc4992503fee4a1711ae51a894779[m
+Author: Taichi <j2002t.o@gmail.com>
+Date:   Mon Feb 11 18:47:30 2013 +0900
+
+    first test
+
+[33mcommit ae93b1da8bd0fc529e621f66adff639a6244708d[m
+Merge: 335184b c31563d
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 18:23:32 2013 +0900
+
+    local master to development push test
+
+[33mcommit 335184b5a1b851fb2f37e982d15a5b9093cf4eeb[m
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 18:13:29 2013 +0900
+
+    local master to development
+
+[33mcommit c31563d0ed1112e3622e90399bbb7e8835bd9ab7[m
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 18:07:38 2013 +0900
+
+    development push test
+
+[33mcommit 5a724d2fd3cb7a06aaa64f4874ed57f8430bb539[m
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 17:41:33 2013 +0900
+
+    development push test
+
+[33mcommit 9f89276c362ca6714635af9d1b361ed0afa719ab[m
+Author: Kazuhiro Nishiyama <248mak@gmail.com>
+Date:   Mon Feb 11 17:32:21 2013 +0900
+
+    OK
+
+[33mcommit 3993d8bb5fc6bfec741a9bc37c2269060285d75f[m
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 17:00:49 2013 +0900
+
+    add authentication
+
+[33mcommit 9f9eb0fcd3b622bf1c3ad9cb5da960e387881530[m
+Author: wattasn <hrk@watta.jp>
+Date:   Mon Feb 11 16:57:57 2013 +0900
+
+    first commit

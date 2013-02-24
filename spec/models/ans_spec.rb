@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 #【テスト未了事項】
 #(1)他モデルからの接続関係のテスト
 #（２）URLに関するバリデーションの拡充チェック
@@ -18,14 +17,15 @@ require 'spec_helper'
 
 describe Ans do
     
-  before(:each) do
+before(:each) do
   @attr = [:ans_content => "Answer Sample",
              :ans_title => "Answer Title",
              :ans_url   => "Answer url"
              ]
-  end
+end
   
-  describe "バリデーション" do
+describe "バリデーション" do
+
     it "空欄の回答内容はエラーとなる。" do
       no_ans_content = Ans.new(@attr.merge(:ans_content => ""))
       no_ans_content.should_not be_vaild
