@@ -52,5 +52,17 @@ describe Ans do
        long_ans_url = ans.new(@attr.merge(:ans_url => "a"*501 ))
        long_ans_url.should_not be_vaild
     end
+    it "should submit http URL" do
+           http_ans_url = ans.new(@attr.merge(:ans_url => "http" ))
+           http_ans_url.should be_vaild
+    end
+    it "should submit https URL" do
+           https_ans_url = ans.new(@attr.merge(:ans_url => "https" ))
+           https_ans_url.should be_vaild
+    end
+    it "should submit ftp URL" do
+           ftp_ans_url = ans.new(@attr.merge(:ans_url => "ftp" ))
+           ftp_ans_url.should be_vaild
+   end 
   end 
 end
