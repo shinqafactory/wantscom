@@ -35,7 +35,7 @@ describe Que do
     }
   end
   
-  describe '質問事項 バリデーションチェック' do
+  describe 'バリデーションチェック' do
     it '質問事項(que_content)が空白の時：エラーが発生すること' do 
       no_content = Que.new(@attr.merge(:que_content => ""))
       no_content.should_not be_valid
@@ -45,9 +45,7 @@ describe Que do
       long_content = Que.new(@attr.merge(:que_content => "a"*501))
       long_content.should_not be_valid
     end
-  end
       
-  describe '質問題名 バリデーションチェック' do
     it '質問題名(que_title)が空白の時：エラーが発生すること' do 
       no_title = Que.new(@attr.merge(:que_title => ""))
       no_title.should_not be_valid
@@ -57,13 +55,13 @@ describe Que do
       long_title = Que.new(@attr.merge(:que_title => "a"*51))
       long_title.should_not be_valid
     end
-  end  
     
-  describe '期限 バリデーションチェック' do
     it '期限(que_title)が空白の時：エラーが発生すること' do 
-      no_due_date = Que.new(@attr.merge(:que_due_date => nil))
+      no_due_date = Que.new(@attr.merge(:que_due_date => ""))
       no_due_date.should_not be_valid
     end
+    
+    
   end
   
 end
