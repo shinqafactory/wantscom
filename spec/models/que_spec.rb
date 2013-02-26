@@ -68,8 +68,5 @@ describe Que do
       no_due_date = Que.new(@attr.merge(:que_due_date => ""))
       no_due_date.should_not be_valid
     end
-    
-    
   end
-  
 end

@@ -1,0 +1,10 @@
+# encoding: utf-8
+
+# config/locales/model.ja.yml
+ja:
+  activerecord:
+    errors:
+      messages:
+        invalid_date: は正しい形式で入力してください。
+        invalid_time: は正しい形式で入力してください。
+        invalid_date_time: は正しい形式で入力してください。
