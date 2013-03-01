@@ -4,6 +4,9 @@ AuthenticationTest::Application.routes.draw do
   devise_for :users
   root :to => "home#index"
 
+  resources :anses, only: [:create, :destroy]
+  resources :ques, only: [:create, :destroy]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
