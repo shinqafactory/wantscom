@@ -3,10 +3,10 @@ class QueController < ApplicationController
   # 質問の新規登録
   def create
     @que = Que.new(params[:que_id])
-    if @member.save
+    if @que.save
       redirect_to @que, notice: "質問を登録しました。"
     else
-      render ""
+      render "home"
     end
   end
 
@@ -17,7 +17,7 @@ class QueController < ApplicationController
     if @que.save
       redirect_to @que, notice: "質問を削除しました。"
     else
-      render ""
+      render "home"
     end
   end
 
