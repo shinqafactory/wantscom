@@ -1,3 +1,4 @@
+# coding: utf-8
 class QuestionsController < ApplicationController
   
   # 質問の新規登録
