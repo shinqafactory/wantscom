@@ -1,4 +1,7 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=54f3798fb5103c9ca2f78e7bfe70bea0493de3d1
 eclipse.preferences.version=1
-encoding//spec/models/ans_spec.rb=UTF-8
+encoding//spec/models/que_spec.rb=UTF-8
 encoding/<project>=UTF-8
 encoding/README.md=UTF-8
