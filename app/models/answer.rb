@@ -6,4 +6,5 @@ class Answer < ActiveRecord::Base
     length: { minimum: 1, maximum: 150 , allow_blank: true }
     validates  :answer_url, presence: true, 
     length: { minimum: 1, maximum: 500 , allow_blank: true }
+   
   end
