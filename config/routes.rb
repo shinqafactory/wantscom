@@ -1,11 +1,13 @@
 AuthenticationTest::Application.routes.draw do
-  get "home/index"
-
   devise_for :users
-  root :to => "home#index"
-
-  resources :anses, only: [:create, :destroy]
-  resources :ques, only: [:create, :destroy]
+  root :to => 'top#index'
+  match ':uname', :to => 'users#show'
+  scope ':uname' do
+    match '/answers/', :to => 'users#answers'
+    match '/questions/', :to => 'users#questions'
+  end
+  resources :answers, only: [:create, :destroy]
+  resources :questions, only: [:create, :destroy, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
