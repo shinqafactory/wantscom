@@ -6,7 +6,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question, notice: "質問を登録しました。"
     else
-      render "home"
+      render "home@index"
     end
   end
 
