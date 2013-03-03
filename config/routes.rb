@@ -1,8 +1,8 @@
 AuthenticationTest::Application.routes.draw do
   devise_for :users
   root :to => 'top#index'
-  match ':uid', :to => 'users#show'
-  scope ':uid' do
+  match ':uname', :to => 'users#show'
+  scope ':uname' do
     match '/answers/', :to => 'users#answers'
     match '/questions/', :to => 'users#questions'
   end
