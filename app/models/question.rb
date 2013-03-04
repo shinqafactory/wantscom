@@ -13,7 +13,12 @@ class Question < ActiveRecord::Base
   length: { minimum: 1, maximum: 50 , allow_blank: true } #入力文字数チェック50文字以内
 
   #期限(que_due_date)の入力チェック
+  #期限のチェック　現在時間より前の場合はエラー
+  #MAX日付は現在日付+一ヶ月　それより後は変更する
   validates :que_due_date, presence: true
   #validates_date :que_due_date
+  
+  #ent_kbnのチェック
+  #有効ｎ値以外の場合はエラー
 
 end
