@@ -79,4 +79,5 @@ it { should be_valid }
      #invaild_answer_url.should_not be_valid
     #end
   end
+
 end

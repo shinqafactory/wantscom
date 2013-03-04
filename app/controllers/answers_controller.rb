@@ -1,3 +1,4 @@
+﻿# encoding: utf-8
 class AnswersController < ApplicationController
   before_filter :authorized_user, :only => [:create, :destroy]
   def create
