@@ -11,8 +11,8 @@ class Answer < ActiveRecord::Base
     #回答url（answer_url）の入力チェック
     validates  :answer_url, presence: true, 
     length: { minimum: 1, maximum: 500 , allow_blank: true }
-    format: { with ***** }  
+    #format: { with ***** }  
     #回答入力区分（answer_ent_kbn）の入力チェック
-    validates  :answer_ent_kbn, presence: true, 
-    format: { with ***** }
+    validates  :answer_ent_kbn, presence: true
+    #format: { with ***** }
   end

@@ -30,7 +30,14 @@ before(:each) do
              :answer_url   => "Answer url"
   }
 end  
-describe "1.回答事項（answer_content)バリデーションチェック" do
+
+it { should respond_to(:answer_content) }
+it { should respond_to(:answer_title) }
+it { should respond_to(:answer_url) }
+  
+it { should be_valid }
+  
+  describe "1.回答事項（answer_content)バリデーションチェック" do
     it "1-1.回答事項(answer_content)が空白の時：エラーが発生すること" do
       no_content = Answer.new(@attr.merge(:answer_content => ""))
       no_content.should_not be_valid
@@ -39,6 +46,7 @@ describe "1.回答事項（answer_content)バリデーションチェック" do
       long_answer_content = Answer.new(@attr.merge(:answer_content => "a"*751 ))
       long_answer_content.should_not be_valid
     end
+  end
   describe "2.回答タイトル（answer_title)バリデーションチェック" do    
     it "2-1.回答タイトル(answer_title)が空白の時：エラーが発生すること" do
       no_title = Answer.new(@attr.merge(:answer_title => ""))
@@ -48,6 +56,7 @@ describe "1.回答事項（answer_content)バリデーションチェック" do
       long_answer_title = Answer.new(@attr.merge(:answer_title => "a"*151 ))
       long_answer_title.should_not be_valid
     end
+  end
   describe "3.回答URL（answer_url)バリデーションチェック" do    
     it "3-1.回答URL(answer_url)が空白の時：エラーが発生すること" do
      no_answer_url = Answer.new(@attr.merge(:answer_url => ""))
@@ -57,17 +66,17 @@ describe "1.回答事項（answer_content)バリデーションチェック" do
      long_answer_url = Answer.new(@attr.merge(:answer_url => "a"*501 ))
      long_answer_url.should_not be_valid
     end
-    it "変更未了" do
-     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-      　　invaild_answer_url.should_not be_valid
-    end
- 　　　 it "変更未了" do
-     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     invaild_answer_url.should_not be_valid
-    end
-  　　　 it "変更未了" do
-      　   invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     invaild_answer_url.should_not be_valid
-    end
+    #it "変更未了" do
+     #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+     #invaild_answer_url.should_not be_valid
+    #end
+    #it "変更未了" do
+    #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+     #invaild_answer_url.should_not be_valid
+    #end
+    #it "変更未了" do
+    #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+     #invaild_answer_url.should_not be_valid
+    #end
   end
 end
