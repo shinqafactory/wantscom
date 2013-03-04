@@ -31,8 +31,6 @@ before(:each) do
   }
 end  
 describe "1.回答事項（answer_content)バリデーションチェック" do
-    it "1-1.回答事項(answer_content)が空白の時：エラーが発生すること" do
-      no_content = Answer.new(@attr.merge(:answer_content => ""))
       no_content.should_not be_valid
     end
     it "1-2.回答事項(answer_content)の文字数が750文字を超える時：エラーが発生すること" do
@@ -57,17 +55,17 @@ describe "1.回答事項（answer_content)バリデーションチェック" do
      long_answer_url = Answer.new(@attr.merge(:answer_url => "a"*501 ))
      long_answer_url.should_not be_valid
     end
-    it "変更未了" do
-     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-      　　invaild_answer_url.should_not be_valid
-    end
- 　　　 it "変更未了" do
-     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     invaild_answer_url.should_not be_valid
-    end
-  　　　 it "変更未了" do
-      　   invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     invaild_answer_url.should_not be_valid
-    end
-  end
+#    it "変更未了" do
+#     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+#      　　invaild_answer_url.should_not be_valid
+#    end
+# 　　　 it "変更未了" do
+#     invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+#     invaild_answer_url.should_not be_valid
+#    end
+#  　　　 it "変更未了" do
+#      　   invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
+#     invaild_answer_url.should_not be_valid
+#    end
+   end
 end
