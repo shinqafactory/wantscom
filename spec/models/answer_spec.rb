@@ -35,7 +35,6 @@ it { should respond_to(:answer_content) }
 it { should respond_to(:answer_title) }
 it { should respond_to(:answer_url) }
   
-it { should be_valid }
   
   describe "1.回答事項（answer_content)バリデーションチェック" do
     it "1-1.回答事項(answer_content)が空白の時：エラーが発生すること" do
