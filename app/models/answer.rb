@@ -1,6 +1,8 @@
 ﻿# encoding: utf-8
 class Answer < ActiveRecord::Base
     attr_accessible :answer_content, :answer_date, :answer_ent_kbn, :answer_id, :answer_id_bn, :answer_pic, :answer_question_id, :answer_title, :answer_url, :answer_use_id, :question_id_bn
+    url_regex = /(https:|http:)+.+(.com|.jp)/
+    answer_ent_kbn_regex = /(1|9)/
     belongs_to :question
     belongs_to :answer
     #回答事項（answer_content）の入力チェック
@@ -11,9 +13,9 @@ class Answer < ActiveRecord::Base
     length: { minimum: 1, maximum: 150 , allow_blank: true }
     #回答url（answer_url）の入力チェック
     validates  :answer_url, presence: true,
-    length: { minimum: 1, maximum: 500 , allow_blank: true }
-    #format: { with ***** }  
+    length: { minimum: 1, maximum: 500 , allow_blank: true },
+    format: { with: url_regex }
     #回答入力区分（answer_ent_kbn）の入力チェック
-    validates  :answer_ent_kbn, presence: true
-    #format: { with ***** }
+    validates  :answer_ent_kbn, presence: true,
+    format: { with: answer_ent_kbn_regex }
   end

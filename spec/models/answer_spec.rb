@@ -18,7 +18,10 @@
 #3.回答URL（answer_url)に関するバリデーション
 #　3-1.値が無い場合はエラーとする
 # 3-2.桁数が500文字を超える場合はエラーとする
-# 3-3.(未実装参照）
+# 3-3.https又はhttpを含まない場合はエラーとする
+# 3-4.com又はjpを含まない場合はエラーとする
+#4.回答入力区分（answer_ent_kbn)に関するバリデーション
+#　4-1.1又は9以外の数字はエラーとする
 
 require 'spec_helper'
 
@@ -27,7 +30,8 @@ describe Answer do
 before(:each) do
   @attr = {:answer_content => "Answer Sample",
              :answer_title => "Answer Title",
-             :answer_url   => "Answer url"
+             :answer_url   => "Answer url",
+             :answer_ent_kbn => "1"
   }
 end  
 
@@ -58,25 +62,29 @@ it { should respond_to(:answer_url) }
   end
   describe "3.回答URL（answer_url)バリデーションチェック" do    
     it "3-1.回答URL(answer_url)が空白の時：エラーが発生すること" do
-     no_answer_url = Answer.new(@attr.merge(:answer_url => ""))
-     no_answer_url.should_not be_valid
+      no_answer_url = Answer.new(@attr.merge(:answer_url => ""))
+      no_answer_url.should_not be_valid
     end
     it "3-2.回答タイトル(answer_url)の文字数が501文字を超える時：エラーが発生すること" do
-     long_answer_url = Answer.new(@attr.merge(:answer_url => "a"*501 ))
-     long_answer_url.should_not be_valid
+      long_answer_url = Answer.new(@attr.merge(:answer_url => "a"*501 ))
+      long_answer_url.should_not be_valid
     end
-    #it "変更未了" do
-     #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     #invaild_answer_url.should_not be_valid
-    #end
-    #it "変更未了" do
-    #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     #invaild_answer_url.should_not be_valid
-    #end
-    #it "変更未了" do
-    #invaild_answer_url = Answer.new(@attr.merge(:answer_url => *** ))
-     #invaild_answer_url.should_not be_valid
-    #end
+    it "3-3.https又はhttpを含まないurlが入力される時：エラーが発生すること" do
+      startinvaild_answer_url = Answer.new(@attr.merge(:answer_url => "ftp://answer.com" ))
+      startinvaild_answer_url.should_not be_valid
+    end
+    it "3-4.com又はjpを含まないurlが入力される時：エラーが発生すること" do
+      endinvaild_answer_url = Answer.new(@attr.merge(:answer_url => "https://answer.biz" ))
+      endinvaild_answer_url.should_not be_valid
+    end
   end
-
+  describe "4.回答区分（answer_ent_kbn)バリデーションチェック" do    
+    it "4-1.回答入力区分が１又は9以外の入力：エラーが発生すること" do
+      entries = %w[1 9]
+      entries.each do |entry|
+       vaild_answer_ent_kbn = Answer.new(@attr.merge(:answer_ent_kbn => entry))
+       vaild_answer_ent_kbn.should be_valid
+      end
+    end 
+  end
 end
