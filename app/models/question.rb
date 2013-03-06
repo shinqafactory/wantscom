@@ -14,12 +14,18 @@ class Question < ActiveRecord::Base
   length: { minimum: 1, maximum: 50 , allow_blank: true } #入力文字数チェック50文字以内
 
   #期限(que_due_date)の入力チェック
-  #期限のチェック　現在時間より前の場合はエラー
-  #MAX日付は現在日付+一ヶ月　それより後は変更する
   validates :que_due_date, presence: true
+  
+  #期限のチェック　現在時間より前の場合はエラー
+#  validates_date :que_due_date, :after => Time.now
+#  def cannot_be_in_the_past?
+#    errors.add(:que_due_date, "現在日より後の日付を入力してください。") if !:que_due_date.blank? and :que_due_date < Date.today
+#  end
+  #MAX日付は現在日付+一ヶ月　それより後は変更する
   #validates_date :que_due_date
   
   #ent_kbnのチェック
   #有効ｎ値以外の場合はエラー
+  validates :que_ent_kbn, :inclusion => { :in => ["1", "2", "9"] }
 
 end
