@@ -38,6 +38,7 @@ end
 it { should respond_to(:answer_content) }
 it { should respond_to(:answer_title) }
 it { should respond_to(:answer_url) }
+it { should respond_to(:answer_ent_kbn) }
   
   
   describe "1.回答事項（answer_content)バリデーションチェック" do
