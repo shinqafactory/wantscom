@@ -19,7 +19,7 @@ class AnswersController < ApplicationController
   private
 
     def authorized_user
-      @answer = answer.find(params[:id])
+      @answer = user.find(params[:id])
       redirect_to root_path unless current_user?(@answer.user)
     end
 end
