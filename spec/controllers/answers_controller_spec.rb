@@ -24,7 +24,8 @@ describe AnswersController do
          it "should not create a micropost" do
            lambda do
              post :create, :micropost => @attr
-           end.should_not change(Micropost, :count)
+           end
+           .should_not change(Micropost, :count)
          end
          it "should render the home page" do
            post :create, :micropost => @attr
