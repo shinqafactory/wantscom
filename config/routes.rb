@@ -7,7 +7,7 @@ AuthenticationTest::Application.routes.draw do
     match '/questions/', :to => 'users#questions'
   end
   resources :answers, only: [:create, :destroy]
-  resources :questions, only: [:create, :destroy, :show]
+  resources :questions, only: [:create, :destroy, :show, :new]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

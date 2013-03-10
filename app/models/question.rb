@@ -1,8 +1,27 @@
-﻿# encoding: utf-8
+# encoding: utf-8
+# == Schema Information
+#
+# Table name: questions
+#
+#  id                  :integer          not null, primary key
+#  que_id              :integer
+#  que_content         :string(255)
+#  que_title           :string(255)
+#  que_due_date        :date
+#  que_date_time       :date
+#  que_use_id          :integer
+#  que_id_bn           :integer
+#  que_delete_datetime :string(255)
+#  que_ent_kbn         :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 class Question < ActiveRecord::Base
-  belongs_to :user
-  has_many :answer
-  
+
+  belongs_to :user, foreign_key: "que_use_id"
+  has_many :answer, foreign_key: "que_id"
+ 
   attr_accessible :que_content, :que_date_time, :que_delete_datetime, :que_due_date, :que_ent_kbn, :que_id, :que_id_bn, :que_title, :que_use_id
   
   #質問事項（que_content）の入力チェック

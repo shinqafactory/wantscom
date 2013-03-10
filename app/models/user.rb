@@ -33,8 +33,8 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
-  has_many :ans
-  has_many :que
+  has_many :answers
+  has_many :questions
 
   validates :username,presence: true,
     uniqueness: { case_sensitive: false },
@@ -52,4 +52,10 @@ class User < ActiveRecord::Base
       where(conditions).first
     end
   end
+
+  #to_paramメソッドをusernameでも利用できるようにオーバーライド
+  def to_param
+    username
+  end
+
 end
