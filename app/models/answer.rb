@@ -24,7 +24,7 @@ class Answer < ActiveRecord::Base
     url_regex = /(https:|http:)+.+(.com|.jp)/
     answer_ent_kbn_regex = /(1|9)/
     belongs_to :question
-    belongs_to :answer
+    belongs_to :user
     #回答事項（answer_content）の入力チェック
     validates  :answer_content, presence: true, 
     length: { minimum: 1, maximum: 750 , allow_blank: true }

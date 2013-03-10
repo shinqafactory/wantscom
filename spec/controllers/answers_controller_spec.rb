@@ -1,77 +1,86 @@
 ﻿# encoding: utf-8
 require 'spec_helper'
 
+
+
+@attr = {:answer_content => "Answer Sample",
+
+           :answer_title => "Answer Title",
+           :answer_url   => "Answer url",
+           :answer_ent_kbn => "1"
+}
+
 describe AnswersController do
-    render_views
-    describe "access control" do
-      it "should deny access to 'create'" do
-        post :create
-        response.should redirect_to(signin_path)
-      end
-      it "should deny access to 'destroy'" do
-        delete :destroy, :id => 1
-        response.should redirect_to(signin_path)
-      end
-    end
-    describe "POST 'create'" do
-      before(:each) do
-        @user = test_sign_in(Factory(:user))
-      end
-      describe "failure" do
+    #render_views
+    #describe "1.アクセスコントロール" do
+     # it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
+        #post :create
+        #response.should redirect_to(root_path)
+     # end
+     # it "1-2.権限のないもののdestroyへのアクセス：エラーを返す" do
+        #delete :destroy, :id => 1
+       # response.should redirect_to(root_path)
+     # end
+    #end
+    describe "2.createに関するテスト" do
+      #before(:each) do
+        #@user = test_sign_in(Factory(:user))
+      #end
+      describe "2-1.回答失敗時" do
          before(:each) do
-           @attr = { :content => "" }
+           @attr = { :answer_content => "" }
          end
-         it "should not create a micropost" do
+         it "2-1-1.回答内容がない投稿はエラーである。" do
            lambda do
-             post :create, :micropost => @attr
-           end.should_not change(Micropost, :count)
+             post :create, :answer => @attr
+           end.should_not change(answer, :count)
          end
-         it "should render the home page" do
-           post :create, :micropost => @attr
-           response.should render_template('pages/home')
+         it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
+           post :create, :answer => @attr
+           response.should render_template()
          end
        end
-       describe "success" do
+       describe "2-2.回答投稿成功時" do
          before(:each) do
-           @attr = { :content => "Lorem ipsum" }
+           @attr = { :answer_content => "Lorem ipsum" }
          end
-         it "should create a micropost" do
+         it "2-2-1.回答は投稿される。" do
            lambda do
-             post :create, :micropost => @attr
-           end.should change(Micropost, :count).by(1)
+             post :create, :answer => @attr
+           end.should change(answer, :count).by(1)
          end
-         it "should redirect to the home page" do
-           post :create, :micropost => @attr
+         it "2-2-2.回答の投稿後は投稿ページへ遷移する。" do
+           post :create, :answer => @attr
            response.should redirect_to(root_path)
          end
-         it "should have a flash message" do
-           post :create, :micropost => @attr
-           flash[:success].should =~ /micropost created/i
+         it "2-2-3.回答の投稿後、回答した旨の連絡が表示される" do
+           post :create, :answer => @attr
+           flash[:success].should =~ /回答が投稿されました!/i
          end
        end
      end
-     describe "DELETE 'destroy'" do
-       describe "for an unauthorized user" do
-         before(:each) do
-           @user = Factory(:user)
-           wrong_user = Factory(:user, :email => Factory.next(:email))
-           test_sign_in(wrong_user)
-           @micropost = Factory(:micropost, :user => @user)
-         end
-         it "should deny access" do
-           delete :destroy, :id => @micropost
-           response.should redirect_to(root_path)
-         end
-       end   
-       describe "for an authorized user" do
-         before(:each) do
-           @user = test_sign_in(Factory(:user))
-           @micropost = Factory(:micropost, :user => @user)
-         end
-         it "should destroy the micropost" do
+     describe "destroyに関するテスト" do
+       #describe "ユーザ権限外のないもの" do
+        # before(:each) do
+           #@user = Factory(:user)
+           #wrong_user = Factory(:user, :email => Factory.next(:email))
+           #test_sign_in(wrong_user)
+           #@micropost = Factory(:micropost, :user => @user)
+         #end
+         #it "権限がないためアクセスが否定される" do
+           #delete :destroy, :id => @answer
+           #response.should redirect_to(root_path)
+         #end
+       #end   
+       describe "ユーザ権限のあるもの" do
+         #before(:each) do
+          # @user = test_sign_in(Factory(:user))
+          # @micropost = Factory(:micropost, :user => @user)
+         #end
+         it "回答は削除される。" do
            lambda do 
              delete :destroy, :id => @micropost
-           end.should change(Micropost, :count).by(-1)
+           end.should change(answer, :count).by(-1)
          end
        end
      end

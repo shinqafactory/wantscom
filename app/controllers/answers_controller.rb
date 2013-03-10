@@ -2,7 +2,7 @@
 class AnswersController < ApplicationController
   before_filter :authorized_user, :only => [:create, :destroy]
   def create
-     @answer  = current_user.answer.build(params[:answer])
+     @answer  = question.answers.build(params[:id])
      if @answer.save
        flash[:success] = "回答が投稿されました!"
        redirect_to root_path
