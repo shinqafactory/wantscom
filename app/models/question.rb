@@ -18,13 +18,10 @@
 #
 
 class Question < ActiveRecord::Base
-<<<<<<< HEAD
+
   belongs_to :user, foreign_key: "que_use_id"
   has_many :answer, foreign_key: "que_id"
-=======
-  belongs_to :user, foreign_key => "que_use_id"
-  has_many :answers, foreign_key => "que_id"
->>>>>>> 2fbebc4d1cb35f7f307e43bdadc1e0cbf0ec5ed6
+
   
   attr_accessible :que_content, :que_date_time, :que_delete_datetime, :que_due_date, :que_ent_kbn, :que_id, :que_id_bn, :que_title, :que_use_id
   
