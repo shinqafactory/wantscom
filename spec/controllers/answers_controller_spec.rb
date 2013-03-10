@@ -4,10 +4,10 @@ require 'spec_helper'
 
 
 @attr = {:answer_content => "Answer Sample",
-
            :answer_title => "Answer Title",
            :answer_url   => "Answer url",
-           :answer_ent_kbn => "1"
+           :answer_ent_kbn => "1",
+           :answer_id => "1"
 }
 
 describe AnswersController do
@@ -33,11 +33,12 @@ describe AnswersController do
          it "2-1-1.回答内容がない投稿はエラーである。" do
            lambda do
              post :create, :answer => @attr
-           end.should_not change(answer, :count)
+           end.should_not change(Answer, :count)
          end
          it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
            post :create, :answer => @attr
-           response.should render_template()
+#           response.should render_template()
+            redirect_to(root_path)
          end
        end
        describe "2-2.回答投稿成功時" do
@@ -47,7 +48,7 @@ describe AnswersController do
          it "2-2-1.回答は投稿される。" do
            lambda do
              post :create, :answer => @attr
-           end.should change(answer, :count).by(1)
+           end.should change(Answer, :count).by(1)
          end
          it "2-2-2.回答の投稿後は投稿ページへ遷移する。" do
            post :create, :answer => @attr
@@ -55,7 +56,7 @@ describe AnswersController do
          end
          it "2-2-3.回答の投稿後、回答した旨の連絡が表示される" do
            post :create, :answer => @attr
-           flash[:success].should =~ /回答が投稿されました!/i
+           flash[:success].should =~ "message"
          end
        end
      end
@@ -79,8 +80,8 @@ describe AnswersController do
          #end
          it "回答は削除される。" do
            lambda do 
-             delete :destroy, :id => @micropost
-           end.should change(answer, :count).by(-1)
+             delete :destroy, :answer_id => @answer
+           end.should change(Answer, :count).by(-1)
          end
        end
      end
