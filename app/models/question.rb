@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> c9f47f7ac561090f04ca7a39a071dd79909bd7d8
 # encoding: utf-8
 # == Schema Information
 #
