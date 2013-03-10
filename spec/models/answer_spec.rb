@@ -1,4 +1,24 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: answers
+#
+#  id                 :integer          not null, primary key
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  answer_id          :string(255)
+#  answer_title       :string(255)
+#  answer_content     :string(255)
+#  answer_date        :date
+#  answer_ent_kbn     :string(255)
+#  answer_id_bn       :integer
+#  answer_pic         :string(255)
+#  answer_question_id :integer
+#  answer_url         :string(255)
+#  answer_user_id     :integer
+#  question_id_bn     :integer
+#
+
 
 #####################残作業（未実装）###########################
 #・他モデルからの接続関係のテスト
@@ -38,7 +58,6 @@ end
 it { should respond_to(:answer_content) }
 it { should respond_to(:answer_title) }
 it { should respond_to(:answer_url) }
-it { should respond_to(:answer_ent_kbn) }
   
   
   describe "1.回答事項（answer_content)バリデーションチェック" do

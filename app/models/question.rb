@@ -1,4 +1,23 @@
-﻿# encoding: utf-8
+
+# encoding: utf-8
+# == Schema Information
+#
+# Table name: questions
+#
+#  id                  :integer          not null, primary key
+#  que_id              :integer
+#  que_content         :string(255)
+#  que_title           :string(255)
+#  que_due_date        :date
+#  que_date_time       :date
+#  que_use_id          :integer
+#  que_id_bn           :integer
+#  que_delete_datetime :string(255)
+#  que_ent_kbn         :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answer

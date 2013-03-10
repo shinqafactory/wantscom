@@ -1,4 +1,22 @@
 # encoding: utf-8
+# == Schema Information
+#
+# Table name: questions
+#
+#  id                  :integer          not null, primary key
+#  que_id              :integer
+#  que_content         :string(255)
+#  que_title           :string(255)
+#  que_due_date        :date
+#  que_date_time       :date
+#  que_use_id          :integer
+#  que_id_bn           :integer
+#  que_delete_datetime :string(255)
+#  que_ent_kbn         :string(255)
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
 
 ################### 残作業（未実装） #######################
 #　・期限(que_due_date)の日付形式チェックの実装
@@ -7,21 +25,6 @@
 #　・テーブル結合のRSPECの実装
 #　　理由：テーブル間の結合関係の把握が出来ておらず未着手状態となっています。
 #######################################################
-
-# == Schema Information
-#
-# Table name: questions
-#
-#  que_id                     :integer          not null, primary key
-#  que_content                :string(1500)     not null
-#  que_title                  :string(150)      not null
-#  que_due_date               :date             not null
-#  que_date_time              :datetime         not null
-#  que_use_id                 :integer          not null
-#  que_id_bn                  :integer          not null
-#  que_delete_datetime        :datetime
-#  que_ent_kbn                :string(1)        not null
-
 #　バリデーションのチェック
 #　1.質問事項(que_content)
 #　　1-1.値が無い場合はエラーとする
