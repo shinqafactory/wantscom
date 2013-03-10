@@ -1,7 +1,10 @@
 ﻿# encoding: utf-8
 require 'spec_helper'
 
+
+
 @attr = {:answer_content => "Answer Sample",
+
            :answer_title => "Answer Title",
            :answer_url   => "Answer url",
            :answer_ent_kbn => "1"
@@ -29,6 +32,8 @@ describe AnswersController do
          end
          it "2-1-1.回答内容がない投稿はエラーである。" do
            lambda do
+             post :create, :answer => @attr
+           end.should_not change(answer, :count)
          end
          it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
            post :create, :answer => @attr
@@ -80,4 +85,3 @@ describe AnswersController do
        end
      end
    end
-end
