@@ -64,7 +64,7 @@ describe Question do
     
     it '1-2.質問事項(que_content)の文字数が500文字を超える時：エラーが発生すること' do
       @attr.que_content = "a"*501
-      should_not be_valid
+      should_not be_valid 
     end
   end
       
