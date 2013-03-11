@@ -25,7 +25,7 @@ describe QuestionsController do
 #    it { should route_to(:controller => "Question", :action => "show", :id => "1") }
 #    { get: "/questions/1" }.should route_to(controller: "Question", action: "show", id: "1")
       
-    expect(:get => "/questions/1").to route_to(:controller => "Question", :action => "index", :id => "1")
+    expect(:get => "/questions/1").should route_to(:controller => "Question", :action => "index", :id => "1")
     
   end
   
