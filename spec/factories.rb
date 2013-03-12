@@ -9,7 +9,7 @@ FactoryGirl.define do
   end
 end
   
-FactoryGirl.define :que1 do
+FactoryGirl.define do
   factory :question, class: Question do
     id 1
     que_id 1
@@ -18,7 +18,7 @@ FactoryGirl.define :que1 do
     que_due_date 2013-03-11
     que_date_time 2013-03-11
     que_use_id 1
-    que_ent_kbn "1"
+    que_ent_kbn '1'
   end
 end
 
