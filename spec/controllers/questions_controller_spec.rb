@@ -12,6 +12,7 @@
 
 
 require 'spec_helper'
+require 'questions_controller'
 
 describe QuestionsController do
   
