@@ -31,9 +31,9 @@ describe AnswersController do
            @attr = { :answer_content => "" }
          end
          it "2-1-1.回答内容がない投稿はエラーである。" do
-           lambda do
+           lambda{
              post :create, :answer => @attr
-           end.should_not change(Answer, :count)
+           }.should_not change(Answer, :count)
          end
          it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
            post :create, :answer => @attr
