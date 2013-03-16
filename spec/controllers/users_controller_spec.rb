@@ -1,12 +1,39 @@
 # coding: utf-8
+
+################### 未実装 #######################
+########################################################
+#  DBからの取得確認
+#  1.回答一覧
+#  2.質問一覧　
+#  ただし，プロフィールページでのモデル取得確認が完了していることから
+#  重複した処理になるとの予想，またviewからも確認されることから緊急性は低いと判断
+
+
 require 'spec_helper'
 
+#各モデルのモックをつくってfindの返り値を検証
+#FactoryGirlと代用できないか？
+def mock_question(stubs={})
+  @mock_question ||= mock_model(Question, stubs) 
+end
+def mock_answer(stubs={})
+  @mock_question ||= mock_model(Question, stubs) 
+end
+def mock_user
+  @mock_user ||= mock_model(User, {
+    :questions => [mock_question],
+    :answers => [mock_answer]
+  }) 
+end
+
+
 describe UsersController do
+
   @user = login_user
 
   describe '1.ユーザプロフィールにアクセスしたら'do
     before do
-      get:'questions',:uname => @user.username
+      get:'show',:uname => @user.username
     end
 
     it '1-1.サクセスであること'do
@@ -17,15 +44,16 @@ describe UsersController do
       response.should render_template("users/show")
     end
 
-#    it '1-4.質問がDBから取得できていること'do
-#      #モック.Userモデルのfind_by_usernameメソッドが引数:allでよびだされることを期待
-#      User.should_receive(:find_by_username).with("Test User")
-#      get:'show',:uname => @user.username
-#    end
-#    it '1-5.回答がDBから取得できていること'do
-#      it'５件より多い場合はエラー'do
-#      end
-#    end
+    it '1-3.質問および回答がモデルから取得できていること'do
+      #Userモデルのfind_by_usernameメソッドが引数@user.usernameでよびだされてmock_userを返すことを期待
+      User.should_receive(:find_by_username).with(@user.username).and_return(mock_user)
+      #mock_userのアソシエーションを参照してレシーブ
+      mock_user.questions.should_receive(:find).with(:all, :limit => 5).and_return(mock_question)
+      mock_user.answers.should_receive(:find).with(:all, :limit => 5).and_return(mock_answer)
+      #最後にgetする決まり
+      get:'show',:uname => @user.username
+    end
+
   end
 
   describe '2.プロフィールの質問一覧にアクセスしたら'do
