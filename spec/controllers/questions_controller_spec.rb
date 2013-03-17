@@ -60,14 +60,14 @@ describe QuestionsController do
 #      end.should change(Post, :count).by(1)
 #    end
     
-    it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
-      expect {
-        post :create, @params
-      }.to change(Question, :count).by(1)
+#    it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
+#      expect {
+#        post :create, @params
+#      }.to change(Question, :count).by(1)
 #      lambda do
 #        post :create, :question => @params
 #      end.should_not change(Question, :count).by(1)
-    end
+#    end
 #    it "2-2.create処理が正常に行われていない場合はエラー" do
 #      xhr :post, :create, relationship: { followed_id: other_user.id }
 #      response.should be_success
