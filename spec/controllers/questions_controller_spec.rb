@@ -19,9 +19,18 @@ describe QuestionsController do
   before(:each) do
     @que = FactoryGirl.create(:question)
     @params = {
+      :id => @que.id,
       :que_id => @que.id,
       :que_content => @que.que_content
     }
+  end
+  
+  def valid_attributes
+    {"id" => 1}
+  end
+  
+  def valid_session
+    {}
   end
     
 #  describe "1.回答一覧表示処理" do
@@ -60,17 +69,17 @@ describe QuestionsController do
 #      end.should change(Post, :count).by(1)
 #    end
     
-#    it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
-#      expect {
-#        post :create, @params
-#      }.to change(Question, :count).by(1)
+    it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
+      expect {
+        post :create, {:question => valid_attributes}, valid_session
+      }.to change(Question, :count).by(1)
 #      lambda do
 #        post :create, :question => @params
-#      end.should_not change(Question, :count).by(1)
+#      end.should change(Question, :count).by(1)
 #    end
 #    it "2-2.create処理が正常に行われていない場合はエラー" do
 #      xhr :post, :create, relationship: { followed_id: other_user.id }
 #      response.should be_success
-#    end
+    end
 #  end
 end
