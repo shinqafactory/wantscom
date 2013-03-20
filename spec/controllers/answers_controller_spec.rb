@@ -1,18 +1,17 @@
 # encoding: utf-8
+
 require 'spec_helper'
+require 'answers_controller'
 
-
-
-#@attr = {:answer_content => "Answer Sample",
-#           :answer_title => "Answer Title",
-#           :answer_url   => "Answer url",
-#           :answer_ent_kbn => "1",
-#           :answer_id => 1
-#}
 describe AnswersController do
 
   before(:each) do
-    @answer = FactoryGirl.create(:answer)
+    @ans = FactoryGirl.create(:answer)
+    @params = {
+      :id => @ans.id,
+      :ans_id => @ans.id,
+      :ans_content => @ans.ans_content
+    }
   end
     #render_views
     #describe "1.アクセスコントロール" do
@@ -31,34 +30,34 @@ describe AnswersController do
       #end
       describe "2-1.回答失敗時" do
          before(:each) do
-           @answer = { :answer_content => "" }
+           @ans = { :answer_content => "" }
          end
          it "2-1-1.回答内容がない投稿はエラーである。" do
            lambda do
-             post :create, :answer => @answer
+             post :create, :answer => @ans
            end.should_not change(Answer, :count)
          end
          it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
-           post :create, :answer => @answer
+           post :create, :answer => @ans
 #           response.should render_template()
             redirect_to(root_path)
          end
        end
        describe "2-2.回答投稿成功時" do
          before(:each) do
-           @answer = { :answer_content => "Lorem ipsum" }
+           @ans = { :answer_content => "Lorem ipsum" }
          end
          it "2-2-1.回答は投稿される。" do
            lambda do
-             post :create, :answer => @answer
+             post :create, :answer => @ans
            end.should change(Answer, :count).by(1)
          end
          it "2-2-2.回答の投稿後は投稿ページへ遷移する。" do
-           post :create, :answer => @answer
+           post :create, :answer => @ans
            response.should redirect_to(root_path)
          end
          it "2-2-3.回答の投稿後、回答した旨の連絡が表示される" do
-           post :create, :answer => @answer
+           post :create, :answer => @ans
            flash[:success].should =~ "message"
          end
        end
@@ -83,7 +82,7 @@ describe AnswersController do
          #end
          it "回答は削除される。" do
            lambda do 
-             delete :destroy, :answer_id => @answer
+             delete :destroy, :answer_id => @ans
            end.should change(Answer, :count).by(-1)
          end
        end
