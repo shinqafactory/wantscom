@@ -13,7 +13,7 @@ class QuestionsController < ApplicationController
   
   # 質問の新規登録
   def create
-    @question = Question.new(params[:que_id])
+    @question = Question.new(params[:question])
     if @question.save
       redirect_to root_url, notice: "質問を投稿しました。"
     else
