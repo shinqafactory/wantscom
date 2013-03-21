@@ -11,17 +11,17 @@ FactoryGirl.define do
   end
 end
 
-#FactoryGirl.define do
-#  factory :answer, class: Answer do
-#    id 1
-#    answer_id 1
-#    answer_content 'test content'
-#    answer_title 'test title'
-#    answer_date 2013-03-11
-#    answer_use_id 1
-#    answer_ent_kbn '1'
-#  end
-#end
+FactoryGirl.define do
+  factory :answer2, class: Answer do
+    id 1
+    answer_id 1
+    answer_content 'test content'
+    answer_title 'test title'
+    answer_date 2013-03-11
+    answer_use_id 1
+    answer_ent_kbn '1'
+  end
+end
 
 FactoryGirl.define do
   factory :user, class: User do
