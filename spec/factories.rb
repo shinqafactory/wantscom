@@ -18,7 +18,7 @@ FactoryGirl.define do
     answer_content 'test content'
     answer_title 'test title'
     answer_date 2013-03-11
-    answer_use_id 1
+    answer_user_id 1
     answer_ent_kbn '1'
   end
 end

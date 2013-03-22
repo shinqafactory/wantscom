@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'spec_helper'
-require 'answers_controller'
+# require 'answers_controller'
 
 describe AnswersController do
 
@@ -15,20 +15,15 @@ describe AnswersController do
     }
   end
 
-#
-#require 'spec_helper'
-#require 'answers_controller'
-#
-#describe AnswersController do
-#
-#  before(:each) do
-#    @ans = FactoryGirl.create(:answer)
-#    @params = {
-#      :id => @ans.id,
-#      :ans_id => @ans.id,
-#      :ans_content => @ans.ans_content
-#    }
-#  end
+  describe "2.createに関するテスト" do
+    it "2-1-1回答内容が投稿はエラーである" do
+    @params = { :ans_content => "" }
+    lambda do
+      post :create, :answer2 => @ans
+    end.should_not change(Answer, :count)
+    end
+  end
+
 #    #render_views
 #    #describe "1.アクセスコントロール" do
 #     # it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
@@ -103,4 +98,4 @@ describe AnswersController do
 #         end
 #       end
 #     end
-  end
+end
