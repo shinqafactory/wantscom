@@ -1,9 +1,9 @@
 AuthenticationTest::Application.routes.draw do
   devise_for :users
-  root :to => 'top#index'
+  root :to => 'answers#answers'
   resources :answers, :only => [:create, :destroy]
   resources :questions, :only => [:create, :destroy, :show, :new]
-  match ':uname', :to => 'users#show'
+  match ':uname', :to => 'answers#answers'
   scope ':uname' do
     match '/answers/', :to => 'users#answers'
     match '/questions/', :to => 'users#questions' 
@@ -64,5 +64,5 @@ AuthenticationTest::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end

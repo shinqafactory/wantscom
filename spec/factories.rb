@@ -23,6 +23,15 @@ FactoryGirl.define do
     }
   end
 end
-
+FactoryGirl.define do
+  factory :answer, class: Answer do
+    id 1
+    answer_id 1
+    answer_title 'test+++++++++++++++++++++++++'
+    answer_content 'test content+++++++++++++++++++++++++++++++++++++++++++++++++'
+    answer_url 'http://google.com' 
+    answer_ent_kbn '1'
+  end
+end
 
 
