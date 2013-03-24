@@ -13,12 +13,25 @@ class QuestionsController < ApplicationController
   
   # 質問の新規登録
   def create
+#    @question = Question.new(params[:question])
+#    if @question.save
+#      redirect_to @question, notice: "質問を投稿しました。"
+#    else
+#      redirect_to "new"
+ #     redirect_to root_url
+#    end
     @question = Question.new(params[:question])
-    if @question.save
-      redirect_to root_url, notice: "質問を投稿しました。"
-    else
-      redirect_to root_url
+
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to @question, notice: 'question was successfully created.' }
+        format.json { render json: @question, status: :created, location: @question }
+      else
+        format.html { redirect_to action: "new" }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
     end
+    
   end
 
   # 質問の削除

@@ -1,9 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Top#index</h1>
+<p>Find me in app/views/top/index.html.erb</p>
 
-<p>現存ユーザ</p>
+<p>質問記載</p>
+<%= link_to 'New Question', new_question_path %>
+
+<p>質問一覧</p>
 <ul>
-<% @users.each do |user| %>
-<li><%= user.id %>:<%= user.username %></li>
+<% @question.each do |question| %>
+<li><%= question.id %>:<%= question.que_content %></li>
 <% end %>
 </ul>

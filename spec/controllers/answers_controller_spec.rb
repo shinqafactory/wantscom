@@ -37,7 +37,7 @@ describe AnswersController do
          end
          it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
            post :create, :answer => @attr
-#           response.should render_template()
+           response.should render_template()
             redirect_to(root_path)
          end
        end

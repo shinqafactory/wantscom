@@ -1,0 +1,16 @@
+<h1>quetion#new</h1>
+<p>Find me in app/views/quetion/new.html.erb</p>
+
+<%= form_for @question do |form| %>
+<%= render 'form' %>
+<% end %>
+
+<form accept-charset="UTF-8" action="/questions" class="new_quetion"
+  id="new_quetion" method="post">
+  <div style="margin: 0;padding: 0; display: inline">
+  	<input name="utf8" type="hidden" value="&#x2713;" />
+  	<input name="authenticity_token" type="hidden" value="+VEtGsv+tQGGhQ8siirVob1BIBqw6E9WqjQoj0NCeEE=" />
+  </div>
+</form>
+
+<%= link_to 'Back', questions_path %>
