@@ -1,9 +1,10 @@
 AuthenticationTest::Application.routes.draw do
   devise_for :users
-  root :to => 'answers#answers'
-  resources :answers, :only => [:create, :destroy]
+  root :to => 'top#index'
+  resources :answers, :only => [:create, :destroy, :show, :new]
   resources :questions, :only => [:create, :destroy, :show, :new]
-  match ':uname', :to => 'answers#answers'
+  match ':top', :to =>'top#index'
+  match ':uname', :to => 'top#index'
   scope ':uname' do
     match '/answers/', :to => 'users#answers'
     match '/questions/', :to => 'users#questions' 

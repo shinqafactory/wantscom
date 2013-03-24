@@ -1,0 +1,27 @@
+<%= form_for(@question_new) do |f| %>
+  <% if @question_new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question_new.errors.count, "error") %> prohibited this question from being saved:</h2>
+
+      <ul>
+      <% @question_new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :que_content %><br />
+    <%= f.text_field :que_content %><br />
+    <%= f.label :que_title %><br />
+    <%= f.text_field :que_title %><br />
+<!--    <%= f.label :que_due_date %>
+    <%= f.date_select :que_due_date,
+        start_year: 1940, end_year: Time.now.year, use_month_numbers: true %>
+-->
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
