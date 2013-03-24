@@ -1,14 +1,28 @@
-﻿# encoding: utf-8
+# encoding: utf-8
+
 require 'spec_helper'
+# require 'answers_controller'
 
+describe AnswersController do
 
+  # ファクトリーガール設定
+  before(:each) do
+    @ans = FactoryGirl.create(:answer2)
+    @params = {
+      :id => @ans.id,
+      :ans_id => @ans.id,
+      :ans_content => @ans.ans_content
+    }
+  end
 
-@attr = {:answer_content => "Answer Sample",
-           :answer_title => "Answer Title",
-           :answer_url   => "Answer url",
-           :answer_ent_kbn => "1",
-           :answer_id => "1"
-}
+  describe "2.createに関するテスト" do
+    it "2-1-1回答内容が投稿はエラーである" do
+    @params = { :ans_content => "" }
+    lambda do
+      post :create, :answer2 => @ans
+    end.should_not change(Answer, :count)
+    end
+  end
 
 describe AnswersController do
     #render_views
@@ -86,3 +100,4 @@ describe AnswersController do
        end
      end
    end
+end
