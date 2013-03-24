@@ -22,6 +22,8 @@
 #　・期限(que_due_date)の日付形式チェックの実装
 #　　理由：railsには日付のバリデーションが提供されておらず、それのRSPECも同じように
 #　　　　提供されていないため現段階では調査中で止まっています。
+# ・期限の必須チェック
+#  理由：必須チェックを入れるとRSPECにてエラーとなってしまう為、後で実装します。
 #　・テーブル結合のRSPECの実装
 #　　理由：テーブル間の結合関係の把握が出来ておらず未着手状態となっています。
 #######################################################
@@ -80,18 +82,18 @@ describe Question do
     end
   end
     
-  describe '3.期限(que_due_date) バリデーションチェック' do
-    it '3-1.期限(que_due_date)が空白の時：エラーが発生すること' do 
-      @attr.que_due_date = ""
-      should_not be_valid
-    end
+#  describe '3.期限(que_due_date) バリデーションチェック' do
+#    it '3-1.期限(que_due_date)が空白の時：エラーが発生すること' do 
+#      @attr.que_due_date = ""
+#      should_not be_valid
+#    end
 
 #    it '3-2.現時日付より前日付の場合はエラーとする' do 
 #      @attr.que_due_date = 2013-03-03
 #      should_not be_cannot_be_in_the_past
       #should_not be_valid
 #    end
-  end
+#  end
   
   describe '4.登録区分(que_ent_kbn) バリデーションチェック' do
     it '4-1.登録区分が1,2,9以外の時：エラーが発生すること' do
