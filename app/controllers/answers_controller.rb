@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
      @answer.answer_ent_kbn = '1'
      if @answer.save
        flash[:success] = "message"
-       redirect_to root_path
+        redirect_to :back
      else
         feed_items = []
 #       render 'questions/show'

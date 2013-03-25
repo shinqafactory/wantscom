@@ -5,11 +5,10 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer_new = Answer.new
-    @answer_all = Answer.find_all_by_answer_ent_kbn('1')
+    @answer_all = Answer.find_all_by_answer_ent_kbn_and_answer_question_id('1',@question.id)
   end
   
   # 質問の新規登録用
-  
   # 質問の新規登録
   def create
 #    @question = Question.new(params[:question])
@@ -36,7 +35,7 @@ class QuestionsController < ApplicationController
 
   # 質問の削除
   def destroy
-    @question = Question.find(params[:que_id])
+    @question = Question.find(params[:id])
     # 登録区分に9：削除を設定
     @question.que_ent_kbn = "9"
     # 削除日時にsysdateを設定
