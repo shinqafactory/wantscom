@@ -19,7 +19,7 @@
 
 class Question < ActiveRecord::Base
   belongs_to :user, :foreign_key => "que_use_id"
-  has_many :answers, :foreign_key => "que_id"
+  has_many :answers
 
   attr_accessible :que_content, :que_title, :que_ent_kbn
   

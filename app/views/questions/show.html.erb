@@ -1,9 +1,6 @@
 <p>選択した質問内容</p>
-
 <li><%= @question.id %>:<%= @question.que_content %></li>
-
-<p>回答する。</p>
-
+</br>
 <%= form_for @answer_new do |form| %>
 <%= render 'answers/form' %>
 <% end %>
