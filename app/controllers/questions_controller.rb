@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer_new = Answer.new
-    @answer_all = Answer.all
+    @answer_all = Answer.find_all_by_answer_ent_kbn('1')
   end
   
   # 質問の新規登録用
@@ -20,13 +20,13 @@ class QuestionsController < ApplicationController
  #     redirect_to root_url
 #    end
     @question = Question.new(params[:question])
-
+    @question.que_ent_kbn = "1"
     respond_to do |format|
       if @question.save
         format.html { redirect_to :controller => 'top', :action => 'index' }
         #format.json { render json: @question, status: :created, location: @question }
       else
-        redirect_to :action => 'new'
+        format.html { redirect_to :controller => 'top', :action => 'index' }
         #format.html { redirect_to action: "new" }
         #format.json { render json: @question.errors, status: :unprocessable_entity }
       end

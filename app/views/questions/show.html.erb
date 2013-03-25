@@ -12,7 +12,7 @@
 <p>回答一覧</p>
 <ul>
 <% @answer_all.each do |answer| %>
-<li><%= answer.id %>:<%= answer.answer_content %></li>
+<li><%= answer.id %>:<%= answer.answer_ent_kbn %>:<%= answer.answer_content %></li>
 <% end %>
 </ul>
 

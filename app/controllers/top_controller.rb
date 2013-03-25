@@ -3,6 +3,6 @@ class TopController < ApplicationController
   def index
     #@users = User.all
     @question_new = Question.new
-    @question_all = Question.all
+    @question_all = Question.find_all_by_que_ent_kbn('1')
   end
 end

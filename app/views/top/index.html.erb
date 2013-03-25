@@ -1,5 +1,4 @@
 <h1>Top</h1>
-<p>Find me in app/views/top/index.html.erb</p>
 
 <p>質問記載</p>
 <%= form_for @question_new do |form| %>
@@ -8,6 +7,6 @@
 <p>質問一覧</p>
 <ul>
 <% @question_all.each do |question| %>
-<li><%= question.id %>:<%= question.que_content %><%= link_to '回答する。', question %></li>
+<li><%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %><%= link_to '回答する。', question %></li>
 <% end %>
 </ul>

@@ -3,8 +3,9 @@ class AnswersController < ApplicationController
 #  before_filter :authorized_user, :only => [:new, :create, :destroy]
  
   def create
-     answer  = Answer.new(params[:answer])
-     if answer.save
+     @answer  = Answer.new(params[:answer])
+     @answer.answer_ent_kbn = '1'
+     if @answer.save
        flash[:success] = "message"
        redirect_to root_path
      else
