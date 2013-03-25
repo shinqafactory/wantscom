@@ -26,13 +26,14 @@ class Question < ActiveRecord::Base
   #質問事項（que_content）の入力チェック
   validates :que_content, presence: true,                  #必須チェック
   length: { minimum: 1, maximum: 500 , allow_blank: true } #入力文字数チェック500文字以内
+#   , allow_blank: true 
   
   #質問題名（que_title）の入力チェック
   validates :que_title, presence: true,                   #必須チェック
   length: { minimum: 1, maximum: 50 , allow_blank: true } #入力文字数チェック50文字以内
 
   #期限(que_due_date)の入力チェック
-  validates :que_due_date, presence: true
+#  validates :que_due_date, presence: true
   
   #期限のチェック　現在時間より前の場合はエラー
 #  validates_date :que_due_date, :after => Time.now

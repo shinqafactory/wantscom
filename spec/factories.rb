@@ -12,7 +12,7 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  factory :answer2, class: Answer do
+  factory :answers, class: Answer do
     id 1
     answer_id 1
     answer_content 'test content'

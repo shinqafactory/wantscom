@@ -26,7 +26,12 @@ describe QuestionsController do
   end
   
   def valid_attributes
-    {"id" => 1}
+    {"id" => 1,
+     "que_due_date" => 2013-03-23,
+     "que_content" => 'testcontent',
+     "que_title" => 'sampletest'
+    }
+
   end
   
   def valid_session
@@ -69,7 +74,8 @@ describe QuestionsController do
     
     it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
       expect {
-        post :create, {:question => valid_attributes}, valid_session
+#        post :create, {:question => valid_attributes}, valid_session
+      post :create, :question => FactoryGirl.attributes_for(:question)
       }.to change(Question, :count).by(1)
 #      lambda do
 #        post :create, :question => @params

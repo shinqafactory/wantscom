@@ -7,7 +7,7 @@ describe AnswersController do
 
   # ファクトリーガール設定
   before(:each) do
-    @ans = FactoryGirl.create(:answer2)
+    @ans = FactoryGirl.create(:answers)
     @params = {
       :id => @ans.id,
       :ans_id => @ans.id,
@@ -19,7 +19,7 @@ describe AnswersController do
     it "2-1-1回答内容が投稿はエラーである" do
     @params = { :ans_content => "" }
     lambda do
-      post :create, :answer2 => @ans
+      post :create, :answers => @ans
     end.should_not change(Answer, :count)
     end
   end
