@@ -17,13 +17,19 @@ class AnswersController < ApplicationController
   
   #  回答の削除
   def destroy
-
-    @answer = Answer.find(params[:answer])
+    @answer = Answer.find(params[:id])
     # 登録区分に9: 削除を設定
-    @answer.ans_ent_kbn = "9"
+    @answer.answer_ent_kbn = '9'
+    if @answer.save
+          flash[:success] = "message"
+           redirect_to :back
+        else
+           feed_items = []
+   #       render 'questions/show'
+           redirect_to root_path
+        end
     # 削除日時にsysdateを設定
-    @answer.ans_delete_datetime = Time.now
-    redirect_to root_path
+    #@answer.ans_delete_datetime = Time.now
   end
 
 #  private
