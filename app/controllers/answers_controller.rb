@@ -5,8 +5,6 @@ class AnswersController < ApplicationController
   def create
      @answer  = Answer.new(params[:answer])
      @answer.answer_ent_kbn = '1'
-     @question_id = Question.find([:id])
-     @answer.answer_question_id = @question_id.id
      if @answer.save
        flash[:success] = "message"
         redirect_to :back

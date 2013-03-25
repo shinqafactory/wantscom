@@ -44,6 +44,6 @@ class Question < ActiveRecord::Base
   
   #ent_kbnのチェック
   #有効ｎ値以外の場合はエラー
-  #validates :que_ent_kbn, :inclusion => { :in => ["1", "2", "9"] }
+  validates :que_ent_kbn, :inclusion => { :in => ["1", "2", "9"] }
 
 end

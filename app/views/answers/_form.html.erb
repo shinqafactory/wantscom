@@ -11,6 +11,7 @@
   <% end %>
 
   <div class="field">
+  	<%= f.hidden_field :answer_question_id, :value => @question.id %>
     <%= f.label :回答内容 %><br />
     <%= f.text_field :answer_content %><br />
     <%= f.label :題名 %><br />

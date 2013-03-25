@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @answer_new = Answer.new
-    @answer_all = Answer.find_all_by_answer_ent_kbn('1')
+    @answer_all = Answer.find_all_by_answer_ent_kbn_and_answer_question_id('1',@question.id)
   end
   
   # 質問の新規登録用
