@@ -11,27 +11,16 @@ class QuestionsController < ApplicationController
   # 質問の新規登録用
   # 質問の新規登録
   def create
-#    @question = Question.new(params[:question])
-#    if @question.save
-#      redirect_to @question, notice: "質問を投稿しました。"
-#    else
-#      redirect_to "new"
- #     redirect_to root_url
-#    end
     @question = Question.new(params[:question])
     @question.que_ent_kbn = "1"
     respond_to do |format|
       if @question.save
         format.html { redirect_to :controller => 'top', :action => 'index' }
-        #format.json { render json: @question, status: :created, location: @question }
       else
         format.html { redirect_to :controller => 'top', :action => 'index' }
-        #format.html { redirect_to action: "new" }
-        #format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
-    
-    end
+  end
 
   # 質問の削除
   def destroy
@@ -40,11 +29,12 @@ class QuestionsController < ApplicationController
     @question.que_ent_kbn = "9"
     # 削除日時にsysdateを設定
     @question.que_delete_datetime = Time.now
-    
-    if @question.update_attributes(params[:que_id])
-      redirect_to @question, notice: "質問を削除しました。"
-    else
-      redirect_to redirect_to
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to :controller => 'top', :action => 'index' }
+      else
+        format.html { redirect_to :controller => 'top', :action => 'index' }
+      end
     end
   end
   

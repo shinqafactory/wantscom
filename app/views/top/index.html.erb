@@ -5,5 +5,6 @@
 <ul>
 <% @question_all.each do |question| %>
 <li><%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %><%= link_to '回答する。', question %></li>
+<td><%= link_to '質問を削除する。', question, method: :delete %></td>
 <% end %>
 </ul>
