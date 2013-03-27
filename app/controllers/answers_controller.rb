@@ -6,11 +6,9 @@ class AnswersController < ApplicationController
      @answer  = Answer.new(params[:answer])
      @answer.answer_ent_kbn = '1'
      if @answer.save
-       flash[:success] = "message"
         redirect_to :back
      else
         feed_items = []
-#       render 'questions/show'
         redirect_to root_path
      end
   end
@@ -21,15 +19,11 @@ class AnswersController < ApplicationController
     # 登録区分に9: 削除を設定
     @answer.answer_ent_kbn = '9'
     if @answer.save
-          flash[:success] = "message"
-           redirect_to :back
-        else
-           feed_items = []
-   #       render 'questions/show'
-           redirect_to root_path
-        end
-    # 削除日時にsysdateを設定
-    #@answer.ans_delete_datetime = Time.now
+      redirect_to :back
+    else
+      redirect_to root_path
+    end
+
   end
 
 #  private

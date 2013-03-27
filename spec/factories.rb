@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :question, class: Question do
+  factory :question  do
     id 1
     que_id 1
     que_content 'test content'
@@ -12,19 +12,17 @@ FactoryGirl.define do
 end
 
 FactoryGirl.define do
-  factory :answer2, class: Answer do
+  factory :answer  do
     id 1
-    answer_id 1
     answer_content 'test content'
     answer_title 'test title'
-    answer_date 2013-03-11
-    answer_user_id 1
+    answer_url  'http://google.com'
     answer_ent_kbn '1'
   end
 end
 
 FactoryGirl.define do
-  factory :user, class: User do
+  factory :user do
     id 1
     username 'Test User'
     email 'user@test.com'
