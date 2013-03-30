@@ -3,23 +3,36 @@ class QuestionsController < ApplicationController
   
   # 回答一覧表示処理
   def show
-    @question = Question.find(params[:que_id], :joins => :answer)
+    @question = Question.find(params[:id])
+    @answer_new = Answer.new
+    @answer_all = Answer.find_all_by_answer_ent_kbn('1')
   end
   
   # 質問の新規登録用
-  def new
-    @question = Question.new
-  end
   
   # 質問の新規登録
   def create
+#    @question = Question.new(params[:question])
+#    if @question.save
+#      redirect_to @question, notice: "質問を投稿しました。"
+#    else
+#      redirect_to "new"
+ #     redirect_to root_url
+#    end
     @question = Question.new(params[:question])
-    if @question.save
-      redirect_to root_url, notice: "質問を投稿しました。"
-    else
-      redirect_to root_url
+    @question.que_ent_kbn = "1"
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to :controller => 'top', :action => 'index' }
+        #format.json { render json: @question, status: :created, location: @question }
+      else
+        format.html { redirect_to :controller => 'top', :action => 'index' }
+        #format.html { redirect_to action: "new" }
+        #format.json { render json: @question.errors, status: :unprocessable_entity }
+      end
     end
-  end
+    
+    end
 
   # 質問の削除
   def destroy

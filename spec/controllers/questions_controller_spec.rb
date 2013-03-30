@@ -75,7 +75,11 @@ describe QuestionsController do
     it "2-1.createを行った場合に質問テーブルにレコードが増えていない場合はエラー" do
       expect {
 #        post :create, {:question => valid_attributes}, valid_session
+<<<<<<< HEAD
       post :create, :question => FactoryGirl.attributes_for(:question)
+=======
+         post :create, :question => FactoryGirl.attributes_for(:question)
+>>>>>>> d3aec4c4a5020e5e1df957b368862467e3324804
       }.to change(Question, :count).by(1)
 #      lambda do
 #        post :create, :question => @params
