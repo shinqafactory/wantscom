@@ -19,7 +19,7 @@
 
 class Question < ActiveRecord::Base
   belongs_to :user, :foreign_key => "que_use_id"
-  has_many :answers, :foreign_key => "que_id"
+  has_many :answers
 
   attr_accessible :que_content, :que_title, :que_ent_kbn
   
@@ -45,6 +45,6 @@ class Question < ActiveRecord::Base
   
   #ent_kbnのチェック
   #有効ｎ値以外の場合はエラー
-  #validates :que_ent_kbn, :inclusion => { :in => ["1", "2", "9"] }
+  validates :que_ent_kbn, :inclusion => { :in => ["1", "2", "9"] }
 
 end

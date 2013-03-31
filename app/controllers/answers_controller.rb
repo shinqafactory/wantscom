@@ -5,26 +5,35 @@ class AnswersController < ApplicationController
   def create
 
      @answer  = Answer.new(params[:answer])
+     respond_to do | format |
+     
+     # answer_ent_kbnに1を代入
      @answer.answer_ent_kbn = '1'
 
      if @answer.save
-       flash[:success] = "message"
-       redirect_to root_path
+      format.html { redirect_to @answer, :notice => '回答が投稿されました' }
+      format.xml  { render :xml => @answer, :status => :created, :location => @answer } 
      else
-        feed_items = []
-#       render 'questions/show'
-        redirect_to root_path
+      format.html { render 'questions/show' }
+      format.xml  { render :xml => @answer.errors, :status => :unprocessable_entity }
      end
   end
-  
-  #  回答の削除
+end  
+ #  回答の削除
   def destroy
-    @answer = Answer.find(params[:answer])
+    @answer = Answer.find(params[:id])
     # 登録区分に9: 削除を設定
-    @answer.ans_ent_kbn = "9"
+    @answer.answer_ent_kbn = '9'
+    if @answer.save
+          flash[:success] = "message"
+           redirect_to :back
+        else
+           feed_items = []
+   #       render 'questions/show'
+           redirect_to root_path
+        end
     # 削除日時にsysdateを設定
-    @answer.ans_delete_datetime = Time.now
-    redirect_to root_path
+    #@answer.ans_delete_datetime = Time.now
   end
 
 #  private
