@@ -1,18 +1,15 @@
 # encoding: utf-8
-
 require 'spec_helper'
 describe AnswersController do
 
   # ファクトリーガール設定
-  before(:each) do
-    @answer = FactoryGirl.create(:answer)
+ # before(:each) do
+    @answer = FactoryGirl.create(:answer_test)
     @params = {
       :id => @answer.id,
       :answer_content => @answer.answer_content
     }
-  end
-
-require 'spec_helper'
+  #end
 
 #    describe "1.アクセスコントロール" do
 #     it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
