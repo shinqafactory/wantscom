@@ -1,6 +1,6 @@
 # encoding: utf-8
 class QuestionsController < ApplicationController
-  
+  before_filter :authenticate_user! 
   # 回答一覧表示処理
   def show
     @question = Question.find(params[:id])
