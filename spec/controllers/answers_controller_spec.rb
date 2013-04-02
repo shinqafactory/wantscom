@@ -1,75 +1,43 @@
 # encoding: utf-8
-
 require 'spec_helper'
-# require 'answers_controller'
-
 describe AnswersController do
 
   # ファクトリーガール設定
-  before(:each) do
-    @ans = FactoryGirl.create(:answers)
+
+ # before(:each) do
+    @answer = FactoryGirl.create(:answer_test)
     @params = {
-      :id => @ans.id,
-      :ans_id => @ans.id,
-      :ans_content => @ans.ans_content
+      :id => @answer.id,
+      :answer_content => @answer.answer_content
     }
-  end
+  #end
 
-
-#    #render_views
-#    #describe "1.アクセスコントロール" do
-#     # it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
-#        #post :create
-#        #response.should redirect_to(root_path)
 #     # end
 #     # it "1-2.権限のないもののdestroyへのアクセス：エラーを返す" do
 #        #delete :destroy, :id => 1
 #       # response.should redirect_to(root_path)
 #     # end
-#    #end
-#require 'spec_helper'
-#require 'answers_controller'
-#
-#describe AnswersController do
-#
-#  before(:each) do
-#    @ans = FactoryGirl.create(:answer)
-#    @params = {
-#      :id => @ans.id,
-#      :ans_id => @ans.id,
-#      :ans_content => @ans.ans_content
-#    }
-#  end
-#    #render_views
-#    #describe "1.アクセスコントロール" do
-#     # it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
-#        #post :create
-#        #response.should redirect_to(root_path)
-#     # end
-#     # it "1-2.権限のないもののdestroyへのアクセス：エラーを返す" do
-#        #delete :destroy, :id => 1
-#       # response.should redirect_to(root_path)
-#     # end
-#    #end
-#    describe "2.createに関するテスト" do
-#      #before(:each) do
-#        #@user = test_sign_in(Factory(:user))
-#      #end
-#      describe "2-1.回答失敗時" do
-#         before(:each) do
-#           @ans = { :answer_content => "" }
-#         end
-#         it "2-1-1.回答内容がない投稿はエラーである。" do
-#           lambda do
-#             post :create, :answer => @ans
-#           end.should_not change(Answer, :count)
-#         end
+#    end
+    describe "2.createに関するテスト" do
+      before(:each) do
+        #@user = test_sign_in(Factory(:user))
+      end
+      describe "2-1.回答失敗時" do
+        before(:each) do
+            @answer = { :answer_content => "" }
+        end
+          it "2-1-1.回答内容がない投稿はエラーである。" do
+            lambda do
+             post :create, :answer => @answer
+            end.should_not change(Answer, :count)
+         end
+      end
 #         it "2-1-2.回答内容がない投稿は投稿ページへ遷移する。" do
 #           post :create, :answer => @ans
 ##           response.should render_template()
 #            redirect_to(root_path)
 #         end
-#       end
+    end
 #       describe "2-2.回答投稿成功時" do
 #         before(:each) do
 #           @ans = { :answer_content => "Lorem ipsum" }

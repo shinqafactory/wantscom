@@ -3,5 +3,7 @@
 
 <p>現存ユーザ</p>
 <ul>
-<li><%= @user.id %>:<%= @user.username %></li>
+  <% @question.each do |question| %>
+  <li><%= question.que_content %></li>
+  <% end %>
 </ul>

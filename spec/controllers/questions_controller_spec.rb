@@ -12,18 +12,17 @@
 
 
 require 'spec_helper'
-require 'questions_controller'
 
 describe QuestionsController do
   
-  before(:each) do
+  #before(:each) do
     @que = FactoryGirl.create(:question)
     @params = {
       :id => @que.id,
       :que_id => @que.id,
       :que_content => @que.que_content
     }
-  end
+  #end
   
 
     
