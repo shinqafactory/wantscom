@@ -1,7 +1,8 @@
 ﻿# encoding: utf-8
 class AnswersController < ApplicationController
-#  before_filter :authorized_user, :only => [:create, :destroy]
- 
+
+  before_filter :authenticate_user! 
+
   def create
      @answer  = Answer.new(params[:answer])
      @answer.answer_ent_kbn = '1'
