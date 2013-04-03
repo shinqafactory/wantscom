@@ -37,5 +37,28 @@ class QuestionsController < ApplicationController
       end
     end
   end
+  def upload_process
+    #アップロードファイルを取得
+    file = params[:upfile]
+    #ファイルのベース名（パスを除いた部分）を取得
+    name = file.original_filename
+    #許可する拡張子を定義
+    perms =['.jpg','.jpeg','.gif','.png']
+    #配列permsにアップロードファイルの拡張子に合致するものがあるか
+    if !perms.include?(File.extname(name).downcase)
+       result = 'アップロードできるのは画像ファイルのみです。'
+       #アップロードファイルのサイズが１MB以下であるか
+    elsif file.size > 1.megabyte
+      result = 'ファイルサイズは1MBまでです。'
+    else
+    
+      #/public/docフォルダ配下にアップロードファイルを保存
+      File.open("public/docs/#{name}", 'wb'){|f| f.write(file.read)}
+      result = "#{name}をアップロードしました。"
+    end
+      #成功/エラーメッセージを保存
+    render :text => result
+    format.html {redirect_to :controller =>'question' ,:action =>'show'}
+  end
   
 end

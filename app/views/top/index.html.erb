@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -65,7 +63,7 @@
         </div>
       </div>
     </div>
-  <div class="hero-unit base">
+     <div class="hero-unit base">
       <div>
           <h1 style="text-align: center;">
            Wantscom
@@ -80,7 +78,7 @@
         <%= form_for @question_new do |form| %>
 		 <%= render 'questions/form' %>
 		 <% end %>
-        <ul class="nav nav-tabs">
+         <ul class="nav nav-tabs">
           <li class="active">
             <a href="#">
               Question
@@ -96,15 +94,16 @@
               Unanswered
             </a>
           </li>
-       </ul>           
-       <ul>
+        </ul>
           <% @question_all.each do |question| %>
             <div class="well">
               <div>
-			     <h1>	
-				  <li><%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %><%= link_to '回答する。', question %></li>
+			     <h3>	
+				  <li><%= question.que_title %></br>
+				  	  <%= question.que_content %>
+				  	  <%= link_to '回答する。', question %></li>
 				  <td><%= link_to '質問を削除する。', question, method: :delete %></td>
-		        </h1>
+		        </h3>
     	     </div>
            </div>
          <% end %>

@@ -1,6 +1,6 @@
 ﻿# encoding: utf-8
 class AnswersController < ApplicationController
-#  before_filter :authorized_user, :only => [:new, :create, :destroy]
+#  before_filter :authorized_user, :only => [:create, :destroy]
  
   def create
      @answer  = Answer.new(params[:answer])
@@ -25,9 +25,11 @@ class AnswersController < ApplicationController
     end
 
   end
+  
 
-#  private
-
+ 
+ private
+ 
 #    def authorized_user
 #      @answer = answer.find(params[:id])
 #      redirect_to root_path unless current_user?(@answer.user)
