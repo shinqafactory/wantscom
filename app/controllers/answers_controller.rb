@@ -4,8 +4,10 @@ class AnswersController < ApplicationController
   before_filter :authenticate_user! ,:only => [:create, :destroy]
   # 回答の新規登録
   def create
+
      @answer  = current_user.answers.new(params[:answer])
      @answer.answer_ent_kbn = '1'
+
      if @answer.save
         redirect_to :back
      else
@@ -13,8 +15,8 @@ class AnswersController < ApplicationController
         redirect_to root_path
      end
   end
-  
-  #  回答の削除
+
+ #  回答の削除
   def destroy
     @answer = Answer.find(params[:id])
     # 登録区分に9: 削除を設定

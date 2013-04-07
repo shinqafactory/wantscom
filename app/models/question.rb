@@ -24,9 +24,10 @@ class Question < ActiveRecord::Base
   attr_accessible :que_content, :que_title, :que_ent_kbn
   
   #質問事項（que_content）の入力チェック
+
   validates :que_content, :presence => true,                  #必須チェック
   :length => { :minimum => 1, :maximum => 500 , :allow_blank => true } #入力文字数チェック500文字以内
-  
+
   #質問題名（que_title）の入力チェック
   validates :que_title, :presence => true,                   #必須チェック
   :length =>  { :minimum => 1 , :maximum => 50 , :allow_blank => true } #入力文字数チェック50文字以内
