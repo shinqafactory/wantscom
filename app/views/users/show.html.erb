@@ -1,45 +1,60 @@
-    <div class="hero-unit base">
+<div class="hero-unit base">
+  <div>
+    <h1>
+      Wantscom
+    </h1>
+    <br>
+    &nbsp;
+  </div>
+  <div class="hero-unit saijyoubu">
+    <div class="well profile">
+      <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 200px; height: 261px;">
+      <h3>
+        <%= current_user.username %>
+      </h3>
       <div>
-        <h1>
-          Wantscom
-        </h1>
-        <br>
-        &nbsp;
       </div>
-      <div class="hero-unit saijyoubu">
-        <div class="well profile">
-          <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 200px; height: 261px;">
-          <h3>
-                       <%= current_user.username %>
-             </h3>
-          <div>
-          </div>
-          <div>
-           最終ログイン時間：<%= current_user.last_sign_in_at %>
-          </div>
-        </div>
-        <ul class="nav nav-tabs">
-          <li class="active">
-            <a href="#">
-              依頼
-            </a>
-          </li>
-          <li class="">
-            <a href="#">
-              回答
-            </a>
-          </li>
-        </ul>
-        <div class="well">
-          <div>
-            <% @answer_user_all.each do | question | %>
-              <h1> 
-                <%= question.answer_content %>
-            </h1>
-            <p>
-            <%= question.id %>
-          <% end %>
-            </p>
-          </div>
-        </div>
+      <div>
+        <p>
+        最終ログイン時間：<%= current_user.last_sign_in_at %>
+      </p>
+      <p>
+      登録メールアドレス：<%= current_user.email %>
+    </p>
+  </div>
+</div>
+<ul class="nav nav-tabs">
+  <li class="active">
+  <a href="#">
+    依頼
+  </a>
+  </li>
+  <li class="">
+  <a href="#">
+    回答
+  </a>
+  </li>
+</ul>
+<div class="well">
+  <div>
+    <% @question_user_all.each do | question | %>
+      <h1> 
+        <%= question.que_title %>
+      </h1>
+      <p>
+      <%= question.que_content %>
+    <% end %>
+    </p>
+  </div>
+  <div>
+    <% @answer_user_all.each do | answer | %>
+      <h1>
+        <%= answer.answer_content %>
+      </h1>
+      <p>
+      <%= answer.answer_title %>
+      </p>
+    <% end %>
+  </div>
+</div>
       </div>
