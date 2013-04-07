@@ -1,27 +1,11 @@
-<%= form_for(@question_new) do |f| %>
-  <% if @question_new.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@question_new.errors.count, "error") %> prohibited this question from being saved:</h2>
+<%= render "shared/errors", obj: @question_new %>
 
-      <ul>
-      <% @question_new.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :質問内容 %><br />
-    <%= f.text_field :que_content %><br />
-    <%= f.label :題名 %><br />
-    <%= f.text_field :que_title %><br />
-<!--    <%= f.label :que_due_date %>
-    <%= f.date_select :que_due_date,
-        start_year: 1940, end_year: Time.now.year, use_month_numbers: true %>
+<%= form.label :質問内容 %><br />
+<%= form.text_field :que_content %><br />
+<%= form.label :題名 %><br />
+<%= form.text_field :que_title %><br />
+<!--    <%= form.label :que_due_date %>
+    <%= form.date_select :que_due_date,
+        start_year: 2013, end_year: Time.now.year, use_month_numbers: true %>
 -->
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+<%= form.submit %>
