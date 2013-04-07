@@ -3,8 +3,8 @@ AuthenticationTest::Application.routes.draw do
   root :to => 'top#index'
   resources :answers, :only => [:create, :destroy, :show, :new]
   resources :questions, :only => [:create, :destroy, :show, :new]
-  match ':top', :to =>'top#index'
-  match ':uname', :to => 'top#index'
+ # match ':top', :to =>'top#index'
+  match ':uname', :to => 'users#show'
   scope ':uname' do
     match '/answers/', :to => 'users#answers'
     match '/questions/', :to => 'users#questions' 

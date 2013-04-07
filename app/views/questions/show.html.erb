@@ -97,9 +97,11 @@
               <li>
 				回答題名：<%= answer.answer_title %></br>
 				回答内容：<%= answer.answer_content %></br>
-				回答URL：<%= answer.answer_url %>
+				回答URL：<%= answer.answer_url %></br>
+				ユーザー名：<%= current_user.username %>
+					<%= link_to('profile', { :controller => 'users', :action => 'show' ,:para => current_user.id } ) %>
 			 </li>
-			  <% if current_user.id == answer.answer_user_id %>
+			 <% if current_user.id == answer.answer_user_id %>
 			 <td><%= link_to '回答を削除', answer, :method => :delete %></td>  
 			   <% end %>
                   
