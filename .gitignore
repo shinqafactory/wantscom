@@ -11,3 +11,6 @@ tags
 *.swm
 *.swn
 *.swo
+
+/tmp/*
+/db/*.sqlite3
