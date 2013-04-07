@@ -10,8 +10,8 @@
         <div class="well profile">
           <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 200px; height: 261px;">
           <h3>
-            ユーザーネーム
-          </h3>
+                       <%= current_user.username %>
+             </h3>
           <div>
           </div>
         </div>
@@ -29,12 +29,12 @@
         </ul>
         <div class="well">
           <div>
-            <% @question_all.each do | question | %>
+            <% @answer_user_all.each do | question | %>
               <h1> 
-                <%= question.que_title %>
+                <%= question.answer_content %>
             </h1>
             <p>
-            <%= question.que_content %>
+            <%= question.id %>
           <% end %>
             </p>
           </div>

@@ -24,7 +24,7 @@ class Answer < ActiveRecord::Base
     #URLのバリデーションにかかる正規化表現
     url_regex = /(https:|http:)+.+(.com|.jp)/
     #アソシエーション
-    belongs_to :question, :foreign_key => "answer_question_id"
+    belongs_to :question, :foreign_key => "id"
     belongs_to :user, :foreign_key => "answer_user_id"
     
     #回答事項（answer_content）の入力チェック
