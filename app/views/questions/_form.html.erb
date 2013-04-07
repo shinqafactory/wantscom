@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
+  	<%= f.label :題名 %><br />
+    <%= f.text_field :que_title %><br />
     <%= f.label :質問内容 %><br />
     <%= f.text_field :que_content %><br />
-    <%= f.label :題名 %><br />
-    <%= f.text_field :que_title %><br />
 <!--    <%= f.label :que_due_date %>
     <%= f.date_select :que_due_date,
         start_year: 1940, end_year: Time.now.year, use_month_numbers: true %>

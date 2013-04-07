@@ -1,10 +1,10 @@
 ﻿# encoding: utf-8
 class AnswersController < ApplicationController
-  before_filter :authenticate_user! 
-  #  before_filter :authorized_user, :only => [:new, :create, :destroy]
 
+  before_filter :authenticate_user! ,:only => [:create, :destroy]
+  # 回答の新規登録
   def create
-     @answer  = Answer.new(params[:answer])
+     @answer  = current_user.answers.new(params[:answer])
      @answer.answer_ent_kbn = '1'
      if @answer.save
         redirect_to :back
@@ -26,9 +26,11 @@ class AnswersController < ApplicationController
     end
 
   end
+  
 
-#  private
-
+ 
+ private
+ 
 #    def authorized_user
 #      @answer = answer.find(params[:id])
 #      redirect_to root_path unless current_user?(@answer.user)
