@@ -9,8 +9,9 @@ class AnswersController < ApplicationController
      if @answer.save
         redirect_to :back
      else
-        feed_items = []
-        redirect_to root_path
+       format.html { render :template => "top/index" }
+       format.json { render json: @answer_new.errors, status: :unprocessable_entity }
+       format.json { render json: @answer_all }
      end
   end
   
@@ -24,15 +25,5 @@ class AnswersController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
-  
-
- 
- private
- 
-#    def authorized_user
-#      @answer = answer.find(params[:id])
-#      redirect_to root_path unless current_user?(@answer.user)
-#    end
 end
