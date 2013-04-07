@@ -11,6 +11,8 @@ class UsersController < ApplicationController
      @question = Question.find(params[:id])
      @answer_new = Answer.new
      @answer_all = Answer.find_all_by_answer_ent_kbn_and_answer_question_id('1',@question.id)
+ #   @question = Question.find(:all)
+ #   @answer = Answer.find(:all)
 
   end
 

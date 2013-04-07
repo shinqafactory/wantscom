@@ -1,15 +1,120 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AuthenticationTest</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+<html lang="en">
 
-</body>
+  <head>
+    <meta charset="utf-8">
+    <title>
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <!-- <link href="assets/css/bootstrap.css" rel="stylesheet"> -->
+    <style>
+      body { padding-top: 60px; /* 60px to make the container go all the way
+        to the bottom of the topbar */ }
+    </style>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
+    </script>
+    <![endif]-->
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="navbar navbar-fixed-top navbar-inverse topbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="#">
+            Wantscom
+          </a>
+          <ul class="nav">
+            <li>
+            <a href="#">
+              Home
+            </a>
+            </li>
+            <li>
+            <a href="#">
+              About
+            </a>
+            </li>
+            <li>
+            <a href="#">
+              Contact
+            </a>
+            </li>
+          </ul>
+          <form class="navbar-form pull-right">
+            <input name="textinput1" type="email" placeholder="Email" class="span2">
+            <input name="textinput2" type="password" placeholder="Password" class="span2">
+            <button class="btn">
+              Sign in
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+<hr>
+<div>
+  <p>
+  © shinqa factory 2013
+  </p>
+</div>
+
+<style>
+  .saijyoubu{background-color :#c0c0c0}
+  .comment {background-color :#808080 ; }
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .saijyoubu {width: 800px}
+
+  .saijyoubu {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .comment { width: 400px;}
+  .comment {height: 400px}
+
+  .comment {display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }   
+
+  .nyuuryoku{ width: 300px;}
+  .nyuuryoku{height: 200px}
+  .daimei{ width: 300px;}
+
+  .base{display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }   
+  .base{ width: 1200px;}
+</style>
+  </body>
 </html>
