@@ -1,17 +1,17 @@
 <div class="hero-unit base">
-  <h2>Sign in</h2>
+  <h2>サインイン</h2>
   <div class="well saijyoubu">
 
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
-      <div><%= f.label "ログイン" %>
+      <div><%= f.label "ユーザ名またはメールアドレス" %>
         <%= f.text_field :login %></div>
 
       <div><%= f.label "パスワード" %>
         <%= f.password_field :password %></div>
       <br />
       <% if devise_mapping.rememberable? -%>
-        <div><%= f.label "ログイン情報を保持する" %><%= f.check_box :remember_me %></div>
+        <div><%= f.label "ログイン情報を保持する" %><%= f.check_box :remember_me %></div><br />
       <% end -%>
 
       <div><%= f.submit "Sign in" %></div>
