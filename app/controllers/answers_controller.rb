@@ -1,10 +1,10 @@
 ﻿# encoding: utf-8
 class AnswersController < ApplicationController
 
-  before_filter :authenticate_user! 
-
+  before_filter :authenticate_user! ,:only => [:create, :destroy]
+  # 回答の新規登録
   def create
-     @answer  = Answer.new(params[:answer])
+     @answer  = current_user.answers.new(params[:answer])
      @answer.answer_ent_kbn = '1'
      if @answer.save
         redirect_to :back

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="utf-8">
     <title>
-       <%= @question.que_title %>	
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -34,20 +34,18 @@
       <div class="navbar-inner">
         <div class="container">
           <a class="brand" href="#">
-          Wantscom
           </a>
           <ul class="nav">
             <li>
-              <%= link_to 'Home', root_path %>
-            </li>
-            <li>
               <a href="#">
-              	About
               </a>
             </li>
             <li>
               <a href="#">
-              	Contact
+              </a>
+            </li>
+            <li>
+              <a href="#">
               </a>
             </li>
           </ul>
@@ -72,71 +70,93 @@
         </div>
         <div class="well saijyoubu">
           <div class="well profile">
-            <p>選択した質問内容</p>
             <div class="well box-B">
               <div>
-              	<li><%= @question.que_content %></li>
               </div>
             </div>
             <img src="http://i.imgur.com/Asf2J.jpg" style=" width: 110px; height: 150px;">
-		  </div>
-          <div class="hero-unit comment"> 
+          </div>
+          <div class="hero-unit comment">
+            <textarea name="textarea1"></textarea>
             <div class="control-group">
-              <%= form_for @answer_new do |form| %>
-			  <%= render 'answers/form' %>
-			  <% end %>
             </div>
-         </div>
-       </div>
-        <p>回答一覧</p>
-        <ul><% @answer_all.each do |answer| %>
+            <div class="control-group">
+            </div>
+            <div class="control-group">
+            </div>
+            <div class="control-group">
+            </div>
+            <div class="control-group">
+            </div>
+            <div class="control-group">
+            </div>
+            <div class="control-group">
+            </div>
+            <div class="well tennpufile">
+              <input name="" type="" class="URL">
+              <a class="btn btn-mini" href="#">
+                URL
+              </a>
+              <input name="fileinput1" type="file">
+            </div>
+            <a class="btn btn-large" href="#">
+              回答する
+            </a>
+          </div>
+        </div>
         <div class="well saijyoubu">
           <div class="well answer">
             <div class="well box-A">
               <div>
-              <li>
-				回答題名：<%= answer.answer_title %></br>
-				回答内容：<%= answer.answer_content %></br>
-				回答URL：<%= answer.answer_url %>
-			 </li>
-			  <% if current_user.id == answer.answer_user_id %>
-			 <td><%= link_to '回答を削除', answer, :method => :delete %></td>  
-			   <% end %>
-                  
+              </div>
+            </div>
+            <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
+          </div>
+          <div class="well answer">
+            <div class="well box-A">
+              <div>
+              </div>
+            </div>
+            <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
+          </div>
+          <div class="well answer">
+            <div class="well box-A">
+              <div>
+              </div>
+            </div>
+            <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
+          </div>
+          <div class="well answer">
+            <div class="well box-A">
+              <div>
               </div>
             </div>
             <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
           </div>
         </div>
-        <% end %></ul>  
-		<%= link_to 'Back', root_path %>
       </div>
-  </div>
+    </div>
 
     <style>
-      .comment {
-       background-color :#808080;
-       }
-      .saijyoubu{
-      background-color :#c0c0c0;
+      .comment {background-color :#808080 ; }
+      .saijyoubu{background-color :#c0c0c0}
+      .nyuuryoku {width:}
+      
+      .tennpufile {background-color :#808080 ; 
+      border-color:#808080;
+          
       }
       
-      .tennpufile {
-      background-color :#808080 ; 
-      border-color:#808080;     
-      }
-      
-      .tennpufile {
-       display: block;
+      .tennpufile {display: block;
        margin-left: auto;
        margin-right: auto;
        text-align: center;
       }   
       
-      .nyuuryoku{width: 400px;}
+      .nyuuryoku{ width: 600px;}
       .nyuuryoku{height: 100px}
       
-      .tennpufile {width: 300px;}
+      .tennpufile { width: 300px;}
       
       .saijyoubu {width: 800px}
       
@@ -161,11 +181,11 @@
        margin-right: auto;
        text-align: center;
       }   
-      .base{ width: 900px;}
+      .base{ width: 1200px;}
       
       .box-A {
         float: left;
-        width: 500px;
+        width: 600px;
         height: px; 
         background-color: ;
       }
@@ -185,4 +205,3 @@
     </script>
   </body>
 </html>
-

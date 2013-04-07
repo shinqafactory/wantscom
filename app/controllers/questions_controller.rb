@@ -1,11 +1,12 @@
 # encoding: utf-8
 class QuestionsController < ApplicationController
-  before_filter :authenticate_user! 
+  before_filter :authenticate_user! ,:only => [:show, :create, :destroy]
   # 回答一覧表示処理
   def show
     @question = Question.find(params[:id])
+    @user = current_user
     @answer_new = Answer.new
-    @answer_all = Answer.find_all_by_answer_ent_kbn_and_answer_question_id('1',@question.id)
+    @answer_all = @question.answers.find_all_by_answer_ent_kbn('1')
   end
   
   # 質問の新規登録用
