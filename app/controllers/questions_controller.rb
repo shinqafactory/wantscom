@@ -15,6 +15,9 @@ class QuestionsController < ApplicationController
     @question_all = Question.find_all_by_que_ent_kbn('1')
     @question_new = Question.new(params[:question])
     @question_new.que_ent_kbn = "1"
+#    @date = Time.mktime(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
+#    @question_new.que_due_date = @date
+    
     respond_to do |format|
       if @question_new.save
         format.html { redirect_to :controller => 'top', :action => 'index' }
@@ -42,6 +45,7 @@ class QuestionsController < ApplicationController
       end
     end
   end
+  
   def upload_process
     #アップロードファイルを取得
     file = params[:upfile]

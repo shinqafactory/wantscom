@@ -1,11 +1,12 @@
 <%= render "shared/errors", obj: @question_new %>
 
-<%= form.label :質問内容 %><br />
-<%= form.text_field :que_content %><br />
 <%= form.label :題名 %><br />
 <%= form.text_field :que_title %><br />
-<!--    <%= form.label :que_due_date %>
-    <%= form.date_select :que_due_date,
-        start_year: 2013, end_year: Time.now.year, use_month_numbers: true %>
+<%= form.label :質問内容 %><br />
+<%= form.text_field :que_content %><br />
+<!--
+<%= form.label :期限%>
+<%= form.date_select :que_due_date,
+    start_year: 2013, end_year: Time.now.year+1, use_month_numbers: true %><br />
 -->
 <%= form.submit %>
