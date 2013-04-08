@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
   has_many :answers, :foreign_key => "answer_user_id"
-  has_many :questions,:foreign_key => "que_use_id"
+  has_many :questions, :foreign_key => "que_use_id"
   #set_primary_key :que_user_id;
   validates :username,presence: true,
     uniqueness: { case_sensitive: false },
