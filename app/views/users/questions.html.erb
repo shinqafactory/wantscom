@@ -1,1 +1,15 @@
-test
+<div class="hero-unit base">
+  <h2><%= @user.username %>の質問履歴</h2>
+  <div class="well saijyoubu">
+    <% @question.each do |q| %>
+      <div class="well">
+        <div>
+          <h2>	
+            <li><%= q.id %>:<%= q.que_ent_kbn %>:<%= q.que_title %>:<%= q.que_content %><%= link_to '回答する。', q %></li>
+            <td><%= link_to '質問を削除する。', q, method: :delete %></td>
+          </h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

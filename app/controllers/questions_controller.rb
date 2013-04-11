@@ -13,7 +13,8 @@ class QuestionsController < ApplicationController
   # 質問の新規登録
   def create
     @question_all = Question.find_all_by_que_ent_kbn('1')
-    @question_new = Question.new(params[:question])
+    # @question_new = Question.new(params[:question])
+    @question_new = current_user.questions.new(params[:question])
     @question_new.que_ent_kbn = "1"
 #    @date = Time.mktime(params[:date][:year].to_i, params[:date][:month].to_i, params[:date][:day].to_i)
 #    @question_new.que_due_date = @date
