@@ -12,8 +12,8 @@ class AnswersController < ApplicationController
      else
        format.json { render json: @answer_new.errors, status: :unprocessable_entity }
        @question = Question.find_by_id(@answer_new.answer_question_id)
-           @answer_all = @question.answers.find_all_by_answer_ent_kbn('1')     
-         format.html { render :template =>"questions/show"}
+       @answer_all = @question.answers.find_all_by_answer_ent_kbn('1')     
+       format.html { render :template =>"questions/show"}
      end
   end
 end
