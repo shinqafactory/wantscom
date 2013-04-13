@@ -4,17 +4,19 @@ class AnswersController < ApplicationController
   before_filter :authenticate_user! ,:only => [:create, :destroy]
   # 回答の新規登録
   def create
-
-     @answer  = current_user.answers.new(params[:answer])
-     @answer.answer_ent_kbn = '1'
-
-     if @answer.save
-        redirect_to :back
+     @answer_new  = current_user.answers.new(params[:answer])
+     @answer_new.answer_ent_kbn = '1'
+     respond_to do |format|
+     if @answer_new.save
+       format.html { redirect_to :controller => 'questions', :action => 'show', :id => @answer_new.answer_question_id }
      else
-        feed_items = []
-        redirect_to root_path
+       format.json { render json: @answer_new.errors, status: :unprocessable_entity }
+       @question = Question.find_by_id(@answer_new.answer_question_id)
+           @answer_all = @question.answers.find_all_by_answer_ent_kbn('1')     
+         format.html { render :template =>"questions/show"}
      end
   end
+end
 
  #  回答の削除
   def destroy
@@ -26,15 +28,5 @@ class AnswersController < ApplicationController
     else
       redirect_to root_path
     end
-
   end
-  
-
- 
- private
- 
-#    def authorized_user
-#      @answer = answer.find(params[:id])
-#      redirect_to root_path unless current_user?(@answer.user)
-#    end
 end

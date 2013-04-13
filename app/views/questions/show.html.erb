@@ -40,7 +40,6 @@
               <% if current_user.id == answer.answer_user_id %>
                 <td><%= link_to '回答を削除', answer, :method => :delete %></td>  
               <% end %>
-
             </div>
           </div>
           <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
@@ -49,4 +48,3 @@
     <% end %></ul>  
   <%= link_to 'Back', root_path %>
 </div>
-

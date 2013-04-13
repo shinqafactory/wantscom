@@ -18,7 +18,7 @@
 #
 
 class Question < ActiveRecord::Base
-  belongs_to :user, :foreign_key => "que_use_id"
+  belongs_to :user, :foreign_key => "id"
   has_many :answers, :foreign_key => "answer_question_id"
 
   attr_accessible :que_content, :que_title, :que_ent_kbn, :que_due_date
