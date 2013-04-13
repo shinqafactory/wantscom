@@ -24,6 +24,8 @@ describe QuestionsController do
     }
   #end
   
+
+    
 #  describe "1.回答一覧表示処理" do
 #    subject { { :get => "/questions/1" } }
 #    it { should route_to(:controller => "Question", :action => "show", :id => "1") }

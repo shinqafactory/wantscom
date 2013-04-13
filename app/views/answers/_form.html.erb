@@ -1,31 +1,11 @@
-<%= form_for(@answer_new) do |f| %>
-  <% if @answer_new.errors.any? %>
-   <div id="error_explanation">
-     <h2><%= pluralize(@answer_new.errors.count, "error") %> prohibited this answer from being saved:</h2>
-      <ul>
-      <% @answer_new.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= render "shared/errors" , obj: @answer_new %>
   <div class="field">
-  	<%= f.hidden_field :answer_question_id, :value => @question.id %>
-    <%= f.label :題名 %><br />
-    <%= f.text_field :answer_title %><br />
-    <%= f.label :回答内容 %><br />
-    <%= f.text_field :answer_content %><br />
-    <%= f.label :URL%><br />
-    <%= f.text_field :answer_url %><br />
+  	<%= form.hidden_field :answer_question_id, :value => @question.id %>
+    <%= form.label :回答内容 %><br />
+    <%= form.text_area :answer_content %><br />
+    <%= form.label :URL%><br />
+    <%= form.text_field :answer_url %><br />
   </div>
   <div class="actions">
-    <%= f.submit %>
-     <% end %>
-    <%= form_tag({ :action => 'upload_process' }, :multipart => true) do %>
-    	<label>ファイルを指定：
-    		<%= file_field_tag 'upfile', { :size => 50 } %>
-    	</labeL>
-    <%= submit_tag 'アップロード' %>
+    <%= form.submit %>
   </div>
-<% end %>

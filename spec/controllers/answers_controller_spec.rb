@@ -3,6 +3,7 @@ require 'spec_helper'
 describe AnswersController do
 
   # ファクトリーガール設定
+
  # before(:each) do
     @answer = FactoryGirl.create(:answer_test)
     @params = {
@@ -11,10 +12,6 @@ describe AnswersController do
     }
   #end
 
-#    describe "1.アクセスコントロール" do
-#     it "1-1.権限のないもののcreateへのアクセス：エラーを返す" do
-#       #post :create
-#        #response.should redirect_to(root_path)
 #     # end
 #     # it "1-2.権限のないもののdestroyへのアクセス：エラーを返す" do
 #        #delete :destroy, :id => 1
