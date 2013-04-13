@@ -1,4 +1,3 @@
-# encoding: utf-8
 class UsersController < ApplicationController
   before_filter :authenticate_user! 
   before_filter :get_user
@@ -10,10 +9,12 @@ class UsersController < ApplicationController
     @question_user_all = current_user.questions.find_all_by_que_ent_kbn('1', :limit => 3 )
   end
 
-  def show_all
+  def showall
     # ユーザーIDに紐づいたQuestionとAnwerをすべて取得
     @answer_user_all = current_user.answers.find_all_by_answer_ent_kbn('1')
     @question_user_all = current_user.questions.find_all_by_que_ent_kbn('1')
+
+    # que_use_idの数をかぞえる
   end
 
   def questions
@@ -32,5 +33,4 @@ class UsersController < ApplicationController
       render_404
     end
   end
-
 end

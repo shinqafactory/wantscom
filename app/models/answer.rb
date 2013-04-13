@@ -31,10 +31,7 @@ class Answer < ActiveRecord::Base
     validates :answer_content , :presence => true, 
     :length => { :minimum => 1, :maximum => 750 , :allow_blank => true }
       
-    #回答題名（answer_title）の入力チェック  
-    validates  :answer_title, :presence => true, 
-    :length  => { :minimum => 1, :maximum => 150 , :allow_blank => true }
-      
+       
     #回答url（answer_url）の入力チェック
     validates  :answer_url, :presence => true,
     :length => { :minimum => 1, :maximum => 500 , :allow_blank => true },
