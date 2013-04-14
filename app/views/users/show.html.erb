@@ -1,26 +1,22 @@
 <div class="hero-unit base">
-  <div>
-    <h1>
-      Wantscom
-    </h1>
-    <br>
-    &nbsp;
-  </div>
   <div class="hero-unit saijyoubu">
     <div class="well profile">
       <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 200px; height: 261px;">
       <h3>
-        <%= current_user.username %>
+          <%= @username %>
       </h3>
       <div>
       </div>
       <div>
         <p>
-        最終ログイン時間：<%= current_user.last_sign_in_at %>
-      </p>
-      <p>
-      登録メールアドレス：<%= current_user.email %>
-    </p>
+        最終ログイン時間：<%= @user_last_sign_in %>
+        </p>
+        <p>
+        登録メールアドレス：<%= @user_email %>
+        </p>
+        <p>
+        登録日: <%= @user_sign_up_time %>
+        </p>
   </div>
 </div>
 <ul class="nav nav-tabs">
@@ -35,28 +31,37 @@
   </a>
   </li>
   <li class="">
-  <%= link_to('全表示', 'users#showall') %>
   </a>
   </li>
 </ul>
 <div class="well">
+  <h2>
+    質問一覧
+  </h2>
     <% @question_user_all.each do | question | %>
       <h4>
-       ・ <%= question.que_title %>
+        【質問タイトル】 <%= link_to question.que_title, question %>
       </h4>
       <p>
-      <%= question.que_content %>
-    <% end %>
-    </p>
-</div>
-<div class="well">
-    <% @answer_user_all.each do | answer | %>
-      <h1>
-        <%= answer.answer_content %>
-      </h1>
-      <p>
-      <%= answer.answer_title %>
+      【質問内容】<%= question.que_content %>
       </p>
     <% end %>
+</div>
+<div class="well">
+  <h2>
+    回答一覧
+  </h2>
+  <% @answer_user_all.each do | answer | %>
+  <% @question_user_all.each do | question | %>
+      <h4>
+       【質問タイトル（回答）】 <%= link_to question.que_title, question %>
+      </h4>
+      <p>
+      【回答内容】 <%= answer.answer_content %>
+      </p>
+      <p>
+      【回答URL】  <%= link_to answer.answer_url, answer.answer_url %>
+    <% end %>
+  <% end %>
   </div>
       </div>
