@@ -15,11 +15,11 @@ class QuestionsController < ApplicationController
     @question_all = Question.find_all_by_que_ent_kbn('1')
     @question_new = current_user.questions.new(params[:question])
     @question_new.que_ent_kbn = "1"
+    
     respond_to do |format|
       if @question_new.save
         format.html { redirect_to :controller => 'top', :action => 'index' }
       else
-#        format.html { redirect_to :controller => 'top', :action => 'index' }
         format.html { render :template => "top/index" }
         format.json { render json: @question_new.errors, status: :unprocessable_entity }
         format.json { render json: @question_all }
@@ -42,6 +42,7 @@ class QuestionsController < ApplicationController
       end
     end
   end
+  
   def upload_process
     #アップロードファイルを取得
     file = params[:upfile]
