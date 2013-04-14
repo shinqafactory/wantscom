@@ -1,11 +1,29 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user! 
+<<<<<<< HEAD
   before_filter :get_user 
   # ユーザプロフィール表示処理
   def show
     # ユーザIDに紐づいたquestionとanswerを５件取得
     @question = @user.questions.find(:all, :limit => 5)
     @answer = @user.answers.find(:all, :limit => 5)
+=======
+  before_filter :get_user
+
+  # ユーザプロフィール表示処理
+  def show
+    # ユーザIDに紐づいたquestionとanswerを５件取得
+    #   @question = @user.questions.find(:all, :limit => 5)
+    #   @answer = @user.answers.find(:all, :limit => 5)#
+    #    @question_user_all = current_user.questions.find_all_by_question_ent_kbn('1')
+    @answer_user_all = current_user.answers.find_all_by_answer_ent_kbn('1')
+    @question_user_all = current_user.questions.find_all_by_que_ent_kbn('1')
+    #     @user_detail = current_user
+    #   @question_all = User.find(:all) 
+    #    @question_all = Question.find(:all)
+    #    @answer = Answer.find(:all)
+
+>>>>>>> 8110b8bef0b4e72f52416a77d0644463e805192b
   end
 
   def questions

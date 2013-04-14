@@ -7,10 +7,4 @@
 <%= form.label :期限, for: "question_date_1i" %>
 <%= form.date_select :que_due_date,
     start_year: 2013, end_year: Time.now.year+1, use_month_numbers: true %><br />
-<!--
-<%= form.label :期限%>
-<%= form_for(@question_new) do |f| %>
-  <%= f.date_select :que_due_date, :use_mmonth_numbers => true %>
-<% end %>
--->
 <%= form.submit %>
