@@ -1,15 +1,9 @@
 <div class="hero-unit base">
   <div>
-    <h1 style="text-align: center;">
-      Wantscom
-    </h1>
-    <br>
     &nbsp;
   </div>
 
   <div class="well saijyoubu">
-    <img src="http://sanespaces.com/wp-content/uploads/2011/10/want-post.png"
-    style=" width: 400px; height: 261px;">
     <%= form_for @question_new do |form| %>
       <%= render 'questions/form', form: form %>
     <% end %>
@@ -42,10 +36,8 @@
               	<%= link_to '回答する。', question %>
               </li>
               <td>
-              	<% if user_signed_in? %>
-                  <% if current_user.id == question.que_use_id %>
-                    <%= link_to '質問を削除する。', question, method: :delete %>
-                  <% end %>
+                <% if user_signed_in? and current_user.id == question.que_use_id %>
+                	<%= link_to '質問を削除する。', question, method: :delete %>
                 <% end %>
               </td>
             </h3>
