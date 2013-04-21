@@ -55,19 +55,22 @@
             </a>
             </li>
           </ul>
-          <form class="navbar-form pull-right">
-            <input name="textinput1" type="email" placeholder="Email" class="span2">
-            <input name="textinput2" type="password" placeholder="Password" class="span2">
-            <button class="btn">
-              Sign in
-            </button>
-          </form>
+          <ul class="nav pull-right">
+          <% if user_signed_in? %>
+            <li><%= link_to "ログアウト", destroy_user_session_path %></li>
+          <% else %>
+            <li><%= link_to "サインアップ（無料）", new_user_registration_path %></li>
+            <li><%= link_to "サインイン", new_user_session_path %></li>
+          <% end %>
+        </ul>
+        </form>
         </div>
       </div>
     </div>
-
+<!--
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+-->
     <%= yield %>
     <hr>
     <div>

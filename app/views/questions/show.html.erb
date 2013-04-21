@@ -1,0 +1,49 @@
+    <div class="container">
+      <div class="hero-unit base">
+        <div>
+          &nbsp;
+        </div>
+        <div class="well saijyoubu">
+          <div class="well profile">
+            <p>選択した質問内容</p>
+            <div class="well box-B">
+              <div>
+              	<li><%= @question.que_content %></li>
+              </div>
+            </div>
+            <img src="http://i.imgur.com/Asf2J.jpg" style=" width: 110px; height: 150px;">
+		  </div>
+          <div class="hero-unit comment"> 
+            <div class="control-group">
+              <%= form_for @answer_new do |form| %>
+			  <%= render 'answers/form' , form: form %>
+			  <% end %>
+            </div>
+         </div>
+       </div>
+        <p>回答一覧</p>
+        <ul><% @answer_all.each do |answer| %>
+        <div class="well saijyoubu">
+          <div class="well answer">
+            <div class="well box-A">
+              <div>
+              <li>
+				回答内容：<%= answer.answer_content %></br>
+				回答URL：<%= answer.answer_url %></br>
+				回答ユーザーID：<%= answer.answer_user_id %></br>
+				<%= link_to('profile', { :controller => 'users',:para => answer.answer_user_id } ) %>
+				回答者：<%= @user_answer.username %>
+			 </li>
+			<% if user_signed_in? and  current_user.id == answer.answer_user_id %> 
+			     <td><%= link_to '回答を削除', answer, :method => :delete %></td>  
+		   	 <% end %>               
+              </div>
+            </div>
+          </div>
+          <img class="henshinsya" src="http://i.imgur.com/Asf2J.jpg" style=" width: 100px; height: 141px;">
+        </div>
+      </div>
+  </div>
+
+    <% end %></ul>  
+</div>
