@@ -5,6 +5,11 @@ AuthenticationTest::Application.routes.draw do
   resources :questions, :only => [:create, :destroy, :show, :new]
  # match ':top', :to =>'top#index'
   match ':uname', :to => 'users#show'
+  match ':top/company' => 'top#company'
+  match ':top/contact' => 'top#contact'
+  match ':top/privacy_policy' => 'top#privacy_policy'
+  match ':top/terms' => 'top#terms'
+  
   scope ':uname' do
     match '/answers/', :to => 'users#answers'
     match '/questions/', :to => 'users#questions' 
