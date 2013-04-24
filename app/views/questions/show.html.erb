@@ -32,7 +32,6 @@
 				回答URL：<%= answer.answer_url %></br>
 				回答ユーザーID：<%= answer.answer_user_id %></br>
 				<%= link_to('profile', { :controller => 'users',:para => answer.answer_user_id } ) %>
-				回答者：<%= @user_answer.username %>
 			 </li>
 			<% if user_signed_in? and  current_user.id == answer.answer_user_id %> 
 			     <td><%= link_to '回答を削除', answer, :method => :delete %></td>  

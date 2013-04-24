@@ -4,7 +4,7 @@
   </div>
 
   <div class="well saijyoubu">
-    <%= form_for @question_new do |form| %>
+    <%= form_for @question_new, :html => { :multipart => true }  do |form| %>
       <%= render 'questions/form', form: form %>
     <% end %>
     <ul class="nav nav-tabs">
@@ -32,11 +32,12 @@
               <li>
               	<%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %>
               	:<%= question.que_use_id %>
+              	<%= image_tag question.avatar.url %>
                 <%= link_to('profile', { :controller => 'users', :action => 'show' ,:para => question.que_use_id } ) %>
               	<%= link_to '回答する。', question %>
               </li>
               <td>
-              	<% if user_signed_in? and current_user.id == question.que_use_id %>
+		       <% if user_signed_in? and current_user.id == question.que_use_id %>
                 	<%= link_to '質問を削除する。', question, method: :delete %>
                 <% end %>
               </td>

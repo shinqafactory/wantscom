@@ -7,8 +7,7 @@ class QuestionsController < ApplicationController
     @user = current_user
     @answer_new = Answer.new
     @answer_all = @question.answers.find_all_by_answer_ent_kbn('1')
-    @user_answer = User.find_by_id(@answer_all.answer_user_id)
-  end
+   end
   
   # 質問の新規登録用
   # 質問の新規登録
