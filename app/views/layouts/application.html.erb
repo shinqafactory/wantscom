@@ -74,8 +74,11 @@
     <%= yield %>
     <hr>
     <div>
-      <p>
-      © shinqa factory 2013
+       <p>
+      　　　　　　　<%= link_to('■利用規約', { :controller => 'top', :action => 'terms' } ) %>
+      　　　　　　　<%= link_to('■プライバシーポリシー', { :controller => 'top', :action => 'privacy_policy' } ) %>
+      　　　　　　　<%= link_to('■コンタクト　', { :controller => 'top', :action => 'contact' } ) %>
+      　　　　　　<%= link_to('　© shinqa factory 2013', { :controller => 'top', :action => 'company' } ) %>
       </p>
     </div>
 

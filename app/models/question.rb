@@ -20,8 +20,8 @@
 class Question < ActiveRecord::Base
   belongs_to :user, :foreign_key => "id"
   has_many :answers, :foreign_key => "answer_question_id"
-
-  attr_accessible :que_content, :que_title, :que_ent_kbn, :que_due_date, :que_use_id
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  attr_accessible :que_content, :que_title, :que_ent_kbn, :que_due_date, :que_use_id,  :avatar
   
   #質問事項（que_content）の入力チェック
 
