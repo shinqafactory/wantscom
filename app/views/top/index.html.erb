@@ -30,10 +30,11 @@
           <div>
             <h3>	
               <li>
+              	<% @user_name = get_user_name(question.que_use_id) %>
               	<%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %>
-              	:<%= get_user_name(question.que_use_id) %>
+              	:<%=  %>
               	<%= image_tag question.avatar.url %>
-                <%= link_to('profile', { :controller => 'users', :action => 'show' ,:para => question.que_use_id } ) %>
+                <%= link_to(@user_name, @user_name) %>
               	<%= link_to '回答する。', question %>
               </li>
               <td>
