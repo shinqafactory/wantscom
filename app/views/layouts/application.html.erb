@@ -32,41 +32,7 @@
     </style>
   </head>
   <body>
-    <div class="navbar navbar-fixed-top navbar-inverse topbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="#">
-            Wantscom
-          </a>
-          <ul class="nav">
-            <li>
-            <a href="#">
-              Home
-            </a>
-            </li>
-            <li>
-            <a href="#">
-              About
-            </a>
-            </li>
-            <li>
-            <a href="#">
-              Contact
-            </a>
-            </li>
-          </ul>
-          <ul class="nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "ログアウト", destroy_user_session_path %></li>
-          <% else %>
-            <li><%= link_to "サインアップ（無料）", new_user_registration_path %></li>
-            <li><%= link_to "サインイン", new_user_session_path %></li>
-          <% end %>
-        </ul>
-        </form>
-        </div>
-      </div>
-    </div>
+     <%= render 'layouts/header' %>
 <!--
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
