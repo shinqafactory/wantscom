@@ -31,7 +31,7 @@
             <h3>	
               <li>
               	<%= question.id %>:<%= question.que_ent_kbn %>:<%= question.que_title %>:<%= question.que_content %>
-              	:<%= question.que_use_id %>
+              	:<%= get_user_name(question.que_use_id) %>
                 <%= link_to('profile', { :controller => 'users', :action => 'show' ,:para => question.que_use_id } ) %>
               	<%= link_to '回答する。', question %>
               </li>
