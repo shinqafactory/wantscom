@@ -42,6 +42,7 @@
                 	<%= link_to '質問を削除する。', question, method: :delete %>
                 <% end %>
               </td>
+			  <span><b>回答数:</b> <%= question.answers.count %></span>
             </h3>
           </div>
         </div>
