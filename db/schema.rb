@@ -11,24 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302070816) do
-
-  create_table "ans", :force => true do |t|
-    t.integer  "ans_id"
-    t.string   "ans_content"
-    t.string   "ans_title"
-    t.string   "ans_url"
-    t.date     "ans_date"
-    t.integer  "ans_question_id"
-    t.integer  "ans_use_id"
-    t.string   "ans_pic"
-    t.integer  "ans_id_bn"
-    t.integer  "que_id_bn"
-    t.date     "que_delete_datetime"
-    t.string   "ans_ent_kbn"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130424153113) do
 
   create_table "answers", :force => true do |t|
     t.datetime "created_at",         :null => false
@@ -72,15 +55,19 @@ ActiveRecord::Schema.define(:version => 20130302070816) do
     t.string   "que_ent_kbn"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",                  :default => "", :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          :default => 0
+    t.integer  "sign_in_count",                       :default => 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -89,13 +76,18 @@ ActiveRecord::Schema.define(:version => 20130302070816) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.integer  "uid",                    :limit => 8
+    t.string   "name"
+    t.string   "provider"
+    t.string   "password"
+    t.datetime "created_at",                                          :null => false
+    t.datetime "updated_at",                                          :null => false
     t.string   "username"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

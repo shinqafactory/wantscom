@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def get_user
     #ユーザモデルを取得
     #エラー処理とか書く？
-    @user = User.find_by_username(params[:uname])
+    @user = User.find_by_name(params[:uname])
     if @user.nil?
       render_404
     end

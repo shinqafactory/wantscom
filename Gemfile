@@ -10,6 +10,10 @@ gem 'devise','2.2.3'
 gem 'simple_form','~> 1.0'
 gem 'validates_timeliness','~> 3.0'
 gem 'paperclip'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

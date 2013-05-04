@@ -2,6 +2,7 @@
   <h2>サインイン</h2>
   <div class="well saijyoubu">
 
+<%if false%>
     <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f| %>
 
       <div><%= f.label "ユーザ名またはメールアドレス" %>
@@ -13,8 +14,10 @@
       <% if devise_mapping.rememberable? -%>
         <div><%= f.label "ログイン情報を保持する" %><%= f.check_box :remember_me %></div><br />
       <% end -%>
-
+<%end%>
       <div><%= f.submit "Sign in" %></div>
+      <li><%= link_to "facebookでログイン", user_omniauth_authorize_path(:facebook) %></li>
+      <li><%= link_to "twitterでログイン", user_omniauth_authorize_path(:twitter)  %></li> 
     <% end %>
   </div>
   <%= render "devise/shared/links" %>

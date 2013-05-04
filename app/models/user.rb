@@ -26,20 +26,23 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable, :confirmable,
-    :authentication_keys => [:login]
+  #devise :database_authenticatable, :registerable, :validatable,
+  #  :recoverable, :rememberable, :trackable, :omniauthable, :confirmable,
+  #  :authentication_keys => [:login]
+
+  devise :trackable, :omniauthable, :registerable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :username, :email, :password, :password_confirmation, :remember_me
+  #attr_accessible :username, :name, :email, :password, :password_confirmation, :remember_me, :uid, :provider
+  attr_accessible :name, :uid, :provider, :password
   # attr_accessible :title, :body
   has_many :answers, :foreign_key => "answer_user_id"
   has_many :questions, :foreign_key => "que_use_id"
   #set_primary_key :que_user_id;
-  validates :username,presence: true,
-    uniqueness: { case_sensitive: false },
-    length: { minimum:3, maximum: 32 }
-  
+  #validates :username,presence: true,
+  #  uniqueness: { case_sensitive: false },
+  #  length: { minimum:3, maximum: 32 }
+
   #ユーザ認証をユーザ名かメールアドレスのどちらかで行えるようにする
   attr_accessor :login
   attr_accessible :login
@@ -55,7 +58,42 @@ class User < ActiveRecord::Base
 
   #to_paramメソッドをusernameでも利用できるようにオーバーライド
   def to_param
-    username
+    name
+    #username
   end
 
+  def  self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"]
+      end
+    end
+  end
+
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(:name => auth.extra.raw_info.name,
+                         :provider => auth.provider,
+                         :uid => auth.uid,
+                         # :email => auth.info.email, #emailを取得したい場合は、migrationにemailを追加してください。
+                         :password => Devise.friendly_token[0,20]
+                        )
+    end
+    user
+  end
+
+
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(:name => auth.info.nickname,
+                         :provider => auth.provider,
+                         :uid => auth.uid,
+                         #                          email:auth.extra.user_hash.email, #色々頑張りましたがtwitterではemail取得できません
+                         :password => Devise.friendly_token[0,20]
+                        )
+    end
+    user
+  end
 end
