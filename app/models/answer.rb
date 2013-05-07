@@ -25,7 +25,7 @@ class Answer < ActiveRecord::Base
     url_regex = /(https:|http:)+.+(.com|.jp)/
     #アソシエーション
     belongs_to :question, :foreign_key => "id"
-    belongs_to :user, :foreign_key => "answer_user_id"
+    belongs_to :user, :foreign_key => "id"
     
     #回答事項（answer_content）の入力チェック
     validates :answer_content , :presence => true, 

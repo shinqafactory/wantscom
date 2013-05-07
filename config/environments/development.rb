@@ -45,4 +45,9 @@ AuthenticationTest::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  Devise.setup do |config|
+      config.omniauth :facebook, '194584067356863', '64689d52c034f0f12e578f409a81ce12', :scope => 'email,user_birthday', :display => 'popup'
+      config.omniauth :twitter, 'zw18AXjBugK9kMeCTOSVcA', 'ZfTJWnDFVeCBNXE0WRrFCJXEo7y2TEr43KZ0q93vAMw', :display => 'popup'
+  end
 end
