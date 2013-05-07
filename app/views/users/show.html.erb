@@ -1,7 +1,7 @@
 <div class="hero-unit base">
   <div class="hero-unit saijyoubu">
     <div class="well profile">
-      <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 200px; height: 261px;">
+      <img class="syashin" src="http://i.imgur.com/Asf2J.jpg" style=" width: 15%; height: 15%;">
       <h3>
           <%= @username %>
       </h3>
@@ -9,13 +9,13 @@
       </div>
       <div>
         <p>
-        最終ログイン時間：<%= @user_last_sign_in %>
+        最終ログイン時間：<%= @user_last_sign_in.strftime('%Y年%m月%d日 %H:%M') %>
         </p>
         <p>
         登録メールアドレス：<%= @user_email %>
         </p>
         <p>
-        登録日: <%= @user_sign_up_time %>
+        登録日: <%= @user_sign_up_time.strftime('%Y年%m月%d日') %>
         </p>
   </div>
 </div>
@@ -35,33 +35,37 @@
   </li>
 </ul>
 <div class="well">
-  <h2>
+  <h3>
     質問一覧
-  </h2>
-    <% @question_user_all.each do | question | %>
-      <h4>
-        【質問タイトル】 <%= link_to question.que_title, question %>
-      </h4>
-      <p>
-      【質問内容】<%= question.que_content %>
-      </p>
+  </h3>
+  <table class="tablefixed"><tr><td>回答数</td><td>質問</td><td>投稿日時</td>
+
+          </tr>
+       <% @question_user_all.each do | question | %>         
+          <tr><td><%= question.answers.count %> </td><td>
+            <%= link_to question.que_title, question %>
+          </td>
+          <td><%= question.created_at.strftime('%Y年%m月%d日 %H:%M') %>
+        </td>
+      </tr>
     <% end %>
+    </table>
+
+    <p align="right">    <%= link_to('全投稿を表示', { :controller => 'user', :action => 'showall'}) %>
+  </p>
 </div>
 <div class="well">
-  <h2>
+  <h3>
     回答一覧
-  </h2>
+  </h3>
+  
+  <table class="tablefixed"><tr><td width="300">回答</td><td>回答日時</td></tr>
   <% @answer_user_all.each do | answer | %>
-  <% @question_user_all.each do | question | %>
-      <h4>
-       【質問タイトル（回答）】 <%= link_to question.que_title, question %>
-      </h4>
-      <p>
-      【回答内容】 <%= answer.answer_content %>
-      </p>
-      <p>
-      【回答URL】  <%= link_to answer.answer_url, answer.answer_url %>
-    <% end %>
-  <% end %>
+  <tr>
+    <td> <%= link_to  answer.answer_content,answer.answer_url %> </td>
+    <td> <%= answer.created_at.strftime('%Y年%m月%d日 %H:%M') %> </td>
+  </tr>
+<% end %>
+</table>
   </div>
       </div>

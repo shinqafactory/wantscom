@@ -9,10 +9,14 @@ class UsersController < ApplicationController
     @user_last_sign_in = @user.last_sign_in_at
     @user_sign_up_time = @user.created_at
     @user_email = @user.email
-    # ユーザIDに紐づいたquestionとanswerを3件取得
-    @answer_user_all = @user.answers.find_all_by_answer_ent_kbn('1', :limit => 3)
-    @question_user_all = @user.questions.find_all_by_que_ent_kbn('1', :limit => 3 )
+    # ユーザIDに紐づいたquestionとanswerを5件取得
+    @answer_user_all = @user.answers.find_all_by_answer_ent_kbn('1', :limit => 5)
+    @question_user_all = @user.questions.find_all_by_que_ent_kbn('1', :limit => 5)
+    @question_count = @user.questions.find_all_by_que_ent_kbn('1')
+#    @cnt = @user.answers.count(:answer_question_id)aue
+    @cnt = Question.count
   end
+
 
   def showall
     # ユーザーIDに紐づいたQuestionとAnwerをすべて取得
