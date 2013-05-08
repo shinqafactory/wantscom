@@ -32,33 +32,9 @@
     </style>
   </head>
   <body>
-<<<<<<< HEAD
-    <div class="navbar navbar-fixed-top navbar-inverse topbar">
-      <div class="navbar-inner">
-        <div class="container">
-          <%= link_to 'Wantscom', root_path, { :class => 'brand'} %>
-          <ul class="nav">
-            <li>
-          <%=  link_to 'About','about.html' %>
-      </li>
-          </ul>
-          <ul class="nav pull-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "ログアウト", destroy_user_session_path %></li>
-          <% else %>
-            <li><%= link_to "サインアップ（無料）", new_user_registration_path %></li>
-            <li><%= link_to "サインイン", new_user_session_path %></li>
-          <% end %>
-        </ul>
-        </form>
-        </div>
-      </div>
-    </div>
-<!--
-=======
+
      <%= render 'layouts/header' %>
      
->>>>>>> e6c2f808d956d02ab75f42e34516de4e1d2b150e
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
